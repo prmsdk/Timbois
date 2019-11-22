@@ -31,9 +31,9 @@
   
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="img/logonav.png"/></a>
+      <a class="navbar-brand js-scroll-trigger" href="index.php"><img src="img/logonav.png"/></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -56,7 +56,6 @@
             <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
           </li>
           <?php
-              session_start();
               error_reporting(0);
               if($_SESSION['status']=='login'){
                 ?><li class="nav-item">
@@ -225,20 +224,6 @@
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>';
-            }else if($_GET['pesan']=='registersuccess'){
-                echo '<div id="alert-login" class="text-center alert alert-success alert-dismissible fade show position-fixed alert-login mx-auto" role="alert">
-                        Anda <strong>Berhasil!</strong> mendaftar, silahkan Login!.
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>';
-            }else if($_GET['pesan']=='successrepassword'){
-              echo '<div id="alert-login" class="text-center alert alert-success alert-dismissible fade show position-fixed alert-login mx-auto" role="alert">
-                      Anda <strong>Berhasil!</strong> mengganti password baru, silahkan Login!.
-                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>';
             }
         }
     ?>
