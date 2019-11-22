@@ -47,10 +47,10 @@
             <a class="nav-link js-scroll-trigger" href="#portfolio">Produk</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            <a class="nav-link js-scroll-trigger" href="#about">Cara Pemesanan</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+            <a class="nav-link js-scroll-trigger" href="#team">About us</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
@@ -189,10 +189,10 @@
                   // header("location:../index.php?=belum login");
                   echo 
                   '<li class="nav-item">
-                    <a class="nav-link btn js-scroll-trigger" data-target="#login_user" data-toggle="modal">MASUK</a>
+                    <a class="nav-link btn btn-outline-primary js-scroll-trigger ml-2" data-target="#login_user" data-toggle="modal">MASUK</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link btn js-scroll-trigger" href="register_user.php">DAFTAR</a>
+                    <a class="nav-link btn btn-primary js-scroll-trigger ml-2" href="register_user.php">DAFTAR</a>
                   </li>';
               }
           ?>
