@@ -36,6 +36,7 @@
             <th>No HP</th>
             <th>Alamat</th>
             <th>Username</th>
+            <th>Saldo</th>
             <th>Status</th>
             <th width="100px">Aksi</th>
           </tr>
@@ -43,22 +44,24 @@
         <tbody>
           <?php $i = 0;
             while($data_user = mysqli_fetch_assoc($result)){
-            $id_user = $data_user['USER_ID'];
-            $nama_user = $data_user['USER_NAMA_LENGKAP']; 
-            $email_user = $data_user['USER_EMAIL'];
-            $no_hp = $data_user['USER_NO_HP'];
-            $alamat_user = $data_user['USER_ALAMAT'];
-            $username_user = $data_user['USER_USERNAME'];
-            $status_user = $data_user['USER_ACTIVE'];
+            $id_user = $data_user['ID_USER'];
+            $nama_user = $data_user['NAMA_USER']; 
+            $email_user = $data_user['EMAIL_USER'];
+            $no_hp = $data_user['NO_HP_USER'];
+            $alamat_user = $data_user['ALAMAT_USER'];
+            $username_user = $data_user['USERNAME_USER'];
+            $status_user = $data_user['STATUS_USER'];
+            $saldo_user = $data_user['SALDO_USER'];
             $i+=1;
           ?>
           <tr>
             <td class="text-center"><?=$i?></td>
-            <td ><p style="width: 200px;"><?=$nama_user?></p></td>
+            <td ><p style="width: 150px;"><?=$nama_user?></p></td>
             <td><?=$email_user?></td>
-            <td><p style="width: 120px;"><?=$no_hp?></p></td>
-            <td><p style="width: 200px;"><?=$alamat_user?></p></td>
-            <td><?=$username_user?></td>
+            <td style="width: 120px;"><?=$no_hp?></td>
+            <td ><p style="width: 250px;"><?=$alamat_user?></p></td>
+            <td style="width: 200px;"><?=$username_user?></td>
+            <td>Rp. <?=$saldo_user?></td>
             <td class="text-center"><?php if($status_user==0){
               echo '<span class="badge badge-pill badge-danger px-3">Tidak Aktif</span>';
             }else{
