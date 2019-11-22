@@ -63,45 +63,36 @@
       <div class="row">
         <div class="col-md-4 col-sm-6 portfolio-item">
           <a class="portfolio-link" href="#portfolioModal1">
-            <div class="portfolio-hover">
               <div class="portfolio-hover-content">
                 <!--<i class="fas fa-plus fa-3x"></i>-->
               </div>
-            </div>
             <img class="img-fluid" src="img/portfolio/produk1.jpg" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4>Stationery</h4>
             <!--<p class="text-muted"></p>-->
-            <i class="btn btn-primary btn-block text-uppercase js-scroll-trigger" href="#">View</i> 
+            <i class="btn btn-primary btn-block text-uppercase js-scroll-trigger" href="#">Pesan</i> 
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
           <a class="portfolio-link" href="#portfolioModal2">
-            <div class="portfolio-hover">
               <div class="portfolio-hover-content">
-                <!--<i class="fas fa-plus fa-3x"></i>--><i class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#">View</i>
+                <!--<i class="fas fa-plus fa-3x"></i>-->
               </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/produk2.jpg" alt="">
+            <img class="img-fluid" src="img/portfolio/produk4.jpg" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4>Paper</h4>
-            <p class="text-muted"></p>
+            <i class="btn btn-primary btn-block text-uppercase js-scroll-trigger" href="#">Pesan</i>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
           <a class="portfolio-link"  href="#portfolioModal3">
-            <div class="portfolio-hover">
               <div class="portfolio-hover-content">
-                <!--<i class="fas fa-plus fa-3x"></i>--><i class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#">View</i>
+                <!--<i class="fas fa-plus fa-3x"></i>-->
               </div>
-            </div>
             <img class="img-fluid" src="img/portfolio/produk3.jpg" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4>Paper Envelope</h4>
-            <p class="text-muted"></p>
+            <i class="btn btn-primary btn-block text-uppercase js-scroll-trigger" href="#">Pesan</i>
           </div>
         </div>
         <!--<div class="col-md-4 col-sm-6 portfolio-item">
