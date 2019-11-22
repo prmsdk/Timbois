@@ -9,21 +9,21 @@ $_SESSION['active_link'] = 'master';
 include 'includes/config.php';
 include 'includes/header.php';
 if(!isset($_SESSION['admin_login'])){
-  header_remove();
   header("location:index.php");
 }
 
 if(isset($_GET['id_user'])){
   $id_user = $_GET['id_user'];
 
-  $data = mysqli_query($con, "SELECT * FROM user WHERE USER_ID='$id_user'");
+  $data = mysqli_query($con, "SELECT * FROM user WHERE ID_USER='$id_user'");
   $data_user = mysqli_fetch_assoc($data);
-  $nama_user = $data_user['USER_NAMA_LENGKAP']; 
-  $email_user = $data_user['USER_EMAIL'];
-  $no_hp = $data_user['USER_NO_HP'];
-  $alamat_user = $data_user['USER_ALAMAT'];
-  $username_user = $data_user['USER_USERNAME'];
-  $status_user = $data_user['USER_ACTIVE'];
+  $nama_user = $data_user['NAMA_USER']; 
+  $email_user = $data_user['EMAIL_USER'];
+  $no_hp = $data_user['NO_HP_USER'];
+  $alamat_user = $data_user['ALAMAT_USER'];
+  $username_user = $data_user['USERNAME_USER'];
+  $status_user = $data_user['STATUS_USER'];
+  $saldo_user = $data_user['SALDO_USER'];
 }
 ?>
   <div class="container my-4">
@@ -73,7 +73,7 @@ if(isset($_GET['id_user'])){
       </div>
       <div class="text-left">
         <input type="submit" class="btn btn-primary" name="edit_user" value="Simpan">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <a href="master_user.php" class="btn btn-secondary" data-dismiss="modal">Close</a>
       </div>
     </div>
     </form>

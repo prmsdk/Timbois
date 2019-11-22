@@ -27,9 +27,9 @@
         <thead>
         <tr>
             <th>No.</th>
-            <th>Jenis Warna</th>
-            <th>Deskripsi Warna</th>
+            <th>Kategori Warna</th>
             <th>Harga Warna</th>
+            <th>Status</th>
             <th>Aksi</th>
           </tr>
         </thead>
@@ -37,16 +37,20 @@
           <?php $i = 0;
             while($data_warna = mysqli_fetch_assoc($result)){
             $id_warna = $data_warna['ID_WARNA'];
-            $jenis_warna = $data_warna['JENIS_WARNA']; 
-            $desc_warna = $data_warna['WARNA_DESC'];
+            $kat_warna = $data_warna['KAT_WARNA']; 
             $harga_warna = $data_warna['HARGA_WARNA'];
+            $status_warna = $data_warna['STATUS_WARNA'];
             $i+=1;
           ?>
           <tr>
             <td class="text-center" style="width:50px"><?=$i?></td>
-            <td style="width:200px;"><?=$jenis_warna?></td>
-            <td class="text-justify"><?=$desc_warna?></td>
-            <td style="width:110px;">Rp. <?=$harga_warna?>,00</td>
+            <td style="width:500px;"><?=$kat_warna?></td>
+            <td class="text-justify">Rp. <?=$harga_warna?></td>
+            <td class="text-center" style="width:100px;"><?php if($status_warna==1){
+              echo '<span class="badge badge-pill badge-success px-3">Tersedia</span>';
+            }else{
+              echo '<span class="badge badge-pill badge-danger px-3">Tidak Tersedia</span>';
+            }?></td>
             <td style="width:67px;">
               <div class="block ml-auto">
                 <a href="query/master_warna_query.php?action=delete&id_warna=<?=$id_warna?>" class="btn btn-danger btn-circle btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus data?');">
@@ -83,16 +87,26 @@
                 <div class="modal-body row justify-content-center">
                   <form class="font-m-light col-11 mt-3" action="query/master_warna_query.php" method="post">
                     <div class="form-group">
-                      <label for="jenis_warna" class="font-m-med">Jenis Warna</label>
-                      <input type="text" class="form-control" id="jenis_warna" name="jenis_warna" aria-describedby="usernameHelp" placeholder="Masukkan Jenis warna" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="harga_warna" class="font-m-med">Deskripsi Warna</label>
-                      <textarea name="desc_warna" id="desc_warna" class="form-control" placeholder="Masukkan Deskripsi Warna . ." required></textarea>
+                      <label for="kategori_warna" class="font-m-med">Kategori Warna</label>
+                      <input type="text" class="form-control" id="kategori_warna" name="kategori_warna" aria-describedby="usernameHelp" placeholder="Masukkan Kategori warna" required>
                     </div>
                     <div class="form-group">
                       <label for="harga_warna" class="font-m-med">Harga Warna</label>
-                      <input type="text" class="form-control" id="harga_warna" name="harga_warna" aria-describedby="usernameHelp" placeholder="Masukkan Harga Warna" required>
+                      <input type="number" name="harga_warna" id="harga_warna" class="form-control" placeholder="Masukkan Harga Warna . ." required>
+                    </div>
+                    <div class="form-group">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" id="status_radio1" name="status_warna" value="1" required>
+                        <label class="form-check-label" for="status_radio1">
+                          Tersedia
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" id="status_radio2" name="status_warna" value="0" required>
+                        <label class="form-check-label" for="status_radio2">
+                          Tidak Tersedia
+                        </label>
+                      </div>
                     </div>
                   </div>
                 <div class="modal-footer text-center">

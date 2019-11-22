@@ -14,31 +14,41 @@ if(isset($_GET['id_warna'])){
 
   $data = mysqli_query($con, "SELECT * FROM warna WHERE ID_WARNA = '$id_warna'");
   $data_warna = mysqli_fetch_assoc($data);
-  $jenis_warna = $data_warna['JENIS_WARNA']; 
-  $desc_warna = $data_warna['WARNA_DESC'];
+  $kat_warna = $data_warna['KAT_WARNA']; 
   $harga_warna = $data_warna['HARGA_WARNA'];
+  $status_warna = $data_warna['STATUS_WARNA'];
 }
 ?>
 
 <div class="container my-4">
     <div class="title text-center">
-    <h2>Ubah Data warna</h2>
+    <h2>Ubah Data Warna</h2>
     </div>
     <div class="row justify-content-center">
     <div class="col-6">
       <form class="font-m-light col-11 mt-3" action="query/master_warna_query.php" method="post">
         <input type="hidden" name="id_warna" id="id" value="<?=$id_warna?>">
         <div class="form-group">
-          <label for="jenis_warna" class="font-m-med">Jenis Warna</label>
-          <input type="text" class="form-control" id="jenis_warna" name="jenis_warna" value="<?=$jenis_warna?>" placeholder="Masukkan Jenis warna" required>
-        </div>
-        <div class="form-group">
-          <label for="harga_warna" class="font-m-med">Deskripsi Warna</label>
-          <textarea name="desc_warna" id="desc_warna" class="form-control" placeholder="Masukkan Deskripsi Warna . ." required><?=$desc_warna?></textarea>
+          <label for="kat_warna" class="font-m-med">Kategori Warna</label>
+          <input type="text" class="form-control" id="kat_warna" name="kat_warna" value="<?=$kat_warna?>" placeholder="Masukkan Kategori Warna" required>
         </div>
         <div class="form-group">
           <label for="harga_warna" class="font-m-med">Harga Warna</label>
-          <input type="text" class="form-control" id="harga_warna" name="harga_warna" value="<?=$harga_warna?>" placeholder="Masukkan Harga warna" required>
+          <input type="number" name="harga_warna" id="harga_warna" class="form-control" placeholder="Masukkan Harga Warna . ." value="<?=$harga_warna?>" required>
+        </div>
+        <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="status_radio1" name="status_warna" value="1" <?php if($status_warna==1){echo "checked";}?>>
+            <label class="form-check-label" for="status_radio1">
+              Tersedia
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="status_radio2" name="status_warna" value="0" <?php if($status_warna==0){echo "checked";}?>>
+            <label class="form-check-label" for="status_radio2">
+              Tidak Tersedia
+            </label>
+          </div>
         </div>
         <div class="modal-footer text-center">
           <input type="submit" class="btn btn-primary" name="edit_warna" value="Simpan">
