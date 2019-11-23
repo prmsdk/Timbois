@@ -70,7 +70,7 @@
           </a>
           <div class="portfolio-caption">
             <!--<p class="text-muted"></p>-->
-            <i class="btn btn-primary btn-block text-uppercase js-scroll-trigger" href="#">Pesan</i> 
+            <a href="pemesanan_print.php"><i class="btn btn-primary btn-block text-uppercase js-scroll-trigger">Pesan</i></a>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
