@@ -29,6 +29,7 @@ $result = mysqli_query($con, "SELECT * FROM fitur");
                             <th>No.</th>
                             <th>Nama Fitur</th>
                             <th>Harga Fitur</th>
+                            <th>Status Fitur</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -38,12 +39,19 @@ $result = mysqli_query($con, "SELECT * FROM fitur");
                             $id_fitur = $data_fitur['ID_FITUR'];
                             $nama_fitur = $data_fitur['NAMA_FITUR'];
                             $harga_fitur = $data_fitur['HARGA_FITUR'];
+                            $status_fitur = $data_fitur['STATUS_FITUR'];
                             $i += 1;
                             ?>
                             <tr>
                                 <td class="text-center" style="width:50px"><?= $i ?></td>
                                 <td style="width:200px;"><?= $nama_fitur ?></td>
                                 <td style="width:110px;">Rp. <?= $harga_fitur ?>,00</td>
+                                <td class="text-center" style="width:100px;">
+                                    <?php if ($status_fitur == 1) {
+                                            echo '<span class="badge badge-pill badge-success px-3">Tersedia</span>';
+                                        } else {
+                                            echo '<span class="badge badge-pill badge-danger px-3">Tidak Tersedia</span>';
+                                        } ?></td>
                                 <td style="width:67px;">
                                     <div class="block ml-auto text-center">
                                         <a href="query/master_fitur_query.php?action=delete&id_fitur=<?= $id_fitur ?>" class="btn btn-danger btn-circle btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus data?');">
@@ -87,20 +95,33 @@ $result = mysqli_query($con, "SELECT * FROM fitur");
                                     <label for="harga_warna" class="font-m-med">Harga Fitur</label>
                                     <input type="text" class="form-control" id="harga_fitur" name="harga_fitur" aria-describedby="usernameHelp" placeholder="Masukkan Harga Fitur" required>
                                 </div>
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="status_radio1" name="status_fitur" value="1" required>
+                                        <label class="form-check-label" for="status_radio1">
+                                            Tersedia
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="status_radio2" name="status_fitur" value="0" required>
+                                        <label class="form-check-label" for="status_radio2">
+                                            Tidak Tersedia
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="modal-footer text-center">
+                                    <input type="submit" class="btn btn-primary" name="tambah_fitur" value="Simpan">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
                         </div>
-                        <div class="modal-footer text-center">
-                            <input type="submit" class="btn btn-primary" name="tambah_fitur" value="Simpan">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
+                        </form>
                     </div>
-                    </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- End Modal Tambah -->
+    <!-- End Modal Tambah -->
 
-<?php
-require 'includes/footer.php';
-?>
+    <?php
+    require 'includes/footer.php';
+    ?>

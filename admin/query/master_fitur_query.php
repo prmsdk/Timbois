@@ -15,10 +15,12 @@ if (isset($_POST['edit_fitur'])) {
     $id_fitur = $_POST['id_fitur'];
     $nama_fitur = $_POST['nama_fitur'];
     $harga_fitur = $_POST['harga_fitur'];
+    $status_fitur = $_POST['status_fitur'];
 
     $result = mysqli_query($con, "UPDATE fitur SET 
     NAMA_FITUR = '$nama_fitur',
-    HARGA_FITUR = '$harga_fitur'
+    HARGA_FITUR = '$harga_fitur',
+    STATUS_FITUR = '$status_fitur'
     WHERE
     ID_FITUR = '$id_fitur'
   ");
@@ -29,6 +31,7 @@ if (isset($_POST['edit_fitur'])) {
 if (isset($_POST['tambah_fitur'])) {
     $nama_fitur = $_POST['nama_fitur'];
     $harga_fitur = $_POST['harga_fitur'];
+    $status_fitur = $_POST['status_fitur'];
 
     // UNTUK MENGAMBIL ID TERAKHIR
     $data = mysqli_query($con, "select ID_FITUR from fitur ORDER BY ID_FITUR DESC LIMIT 1");
@@ -44,8 +47,8 @@ if (isset($_POST['tambah_fitur'])) {
     }
 
     $result = mysqli_query($con, "INSERT INTO 
-    fitur(ID_FITUR, NAMA_FITUR, HARGA_FITUR)
-    VALUES('$id_fitur', '$nama_fitur', '$harga_fitur')
+    fitur(ID_FITUR, NAMA_FITUR, HARGA_FITUR, STATUS_FITUR)
+    VALUES('$id_fitur', '$nama_fitur', '$harga_fitur', '$status_fitur')
     ");
 
     header("location:../master_fitur.php");

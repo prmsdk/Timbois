@@ -18,15 +18,15 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Services</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <h2 class="section-heading text-uppercase">Pelayanan</h2>
+          <!--<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>-->
         </div>
       </div>
       <div class="row text-center">
         <div class="col-md-4">
           <span class="fa-stack fa-4x">
             <!--<i class="fas fa-circle fa-stack-2x text-primary"></i>
-            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>--><img src="img/macet.png">
+            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></ i>--><img src="img/macet1.png">
           </span>
           <h4 class="service-heading">Mudah</h4>
           <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
@@ -34,7 +34,7 @@
         <div class="col-md-4">
           <span class="fa-stack fa-4x">
             <!--<i class="fas fa-circle fa-stack-2x text-primary"></i>
-            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>--><img src="img/cepat.png">
+            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>--><img src="img/cepat1.png">
           </span>
           <h4 class="service-heading">Cepat</h4>
           <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
@@ -42,7 +42,7 @@
         <div class="col-md-4">
           <span class="fa-stack fa-4x">
             <!--<i class="fas fa-circle fa-stack-2x text-primary"></i>
-            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>--><img src="img/aman.png">
+            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>--><img src="img/aman1.png">
           </span>
           <h4 class="service-heading">Aman</h4>
           <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
@@ -63,44 +63,36 @@
       <div class="row">
         <div class="col-md-4 col-sm-6 portfolio-item">
           <a class="portfolio-link" href="#portfolioModal1">
-            <div class="portfolio-hover">
               <div class="portfolio-hover-content">
-                <!--<i class="fas fa-plus fa-3x"></i>--> <i class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#">View</i> 
+                <!--<i class="fas fa-plus fa-3x"></i>-->
               </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/produk1.jpg" alt="">
+            <img class="img-fluid" src="img/portfolio/produk4.jpg" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4>Stationery</h4>
-            <p class="text-muted"></p>
+            <!--<p class="text-muted"></p>-->
+            <i class="btn btn-primary btn-block text-uppercase js-scroll-trigger" href="#">Pesan</i> 
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
           <a class="portfolio-link" href="#portfolioModal2">
-            <div class="portfolio-hover">
               <div class="portfolio-hover-content">
-                <!--<i class="fas fa-plus fa-3x"></i>--><i class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#">View</i>
+                <!--<i class="fas fa-plus fa-3x"></i>-->
               </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/produk2.jpg" alt="">
+            <img class="img-fluid" src="img/portfolio/produkdokumen.jpg" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4>Paper</h4>
-            <p class="text-muted"></p>
+            <i class="btn btn-primary btn-block text-uppercase js-scroll-trigger" href="#">Pesan</i>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
           <a class="portfolio-link"  href="#portfolioModal3">
-            <div class="portfolio-hover">
               <div class="portfolio-hover-content">
-                <!--<i class="fas fa-plus fa-3x"></i>--><i class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#">View</i>
+                <!--<i class="fas fa-plus fa-3x"></i>-->
               </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/produk3.jpg" alt="">
+            <img class="img-fluid" src="img/portfolio/produkkertas.jpg" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4>Paper Envelope</h4>
-            <p class="text-muted"></p>
+            <i class="btn btn-primary btn-block text-uppercase js-scroll-trigger" href="#">Pesan</i>
           </div>
         </div>
         <!--<div class="col-md-4 col-sm-6 portfolio-item">
@@ -154,8 +146,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">About</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <h2 class="section-heading text-uppercase">Cara Pemesanan</h2>
+          <h3 class="section-subheading text-muted"></h3>
         </div>
       </div>
       <div class="row">
@@ -167,8 +159,7 @@
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h4>2009-2011</h4>
-                  <h4 class="subheading">Our Humble Beginnings</h4>
+                  <h4 class="subheading">Kunjungi Website</h4>
                 </div>
                 <div class="timeline-body">
                   <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
@@ -181,8 +172,7 @@
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h4>March 2011</h4>
-                  <h4 class="subheading">An Agency is Born</h4>
+                  <h4 class="subheading">Pesan</h4>
                 </div>
                 <div class="timeline-body">
                   <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
@@ -195,8 +185,7 @@
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h4>December 2012</h4>
-                  <h4 class="subheading">Transition to Full Service</h4>
+                  <h4 class="subheading">Bayar</h4>
                 </div>
                 <div class="timeline-body">
                   <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
@@ -209,8 +198,7 @@
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h4>July 2014</h4>
-                  <h4 class="subheading">Phase Two Expansion</h4>
+                  <h4 class="subheading">Ambil</h4>
                 </div>
                 <div class="timeline-body">
                   <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
@@ -235,8 +223,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <h2 class="section-heading text-uppercase">About us</h2>
+          <h3 class="section-subheading text-muted"></h3>
         </div>
       </div>
       <div class="row">
