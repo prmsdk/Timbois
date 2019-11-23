@@ -29,7 +29,7 @@
             <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></ i>--><img src="img/macet1.png">
           </span>
           <h4 class="service-heading">Mudah</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          <p class="text-muted">Anda dapat dengan mudah mencetak dokumen, hanya dengan mengirim file ke Buah Print dan sekaligus melakukan transaksi didalamnya.</p>
         </div>
         <div class="col-md-4">
           <span class="fa-stack fa-4x">
@@ -37,7 +37,7 @@
             <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>--><img src="img/cepat1.png">
           </span>
           <h4 class="service-heading">Cepat</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          <p class="text-muted">Anda dapat memantau secara realtime melalui browser, dan datang ke tempat mencetak dokumen jika proses di Buah Print telah selesai.</p>
         </div>
         <div class="col-md-4">
           <span class="fa-stack fa-4x">
@@ -45,7 +45,7 @@
             <i class="fas fa-lock fa-stack-1x fa-inverse"></i>--><img src="img/aman1.png">
           </span>
           <h4 class="service-heading">Aman</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          <p class="text-muted">Anda mendapat jaminan bahwa dokumen yang anda kirim, sampai ke mitra Buah Print, dan perangkat penyimpanan anda akan aman dari virus.</p>
         </div>
       </div>
     </div>
@@ -162,7 +162,8 @@
                   <h4 class="subheading">Kunjungi Website</h4>
                 </div>
                 <div class="timeline-body">
-                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                  <p class="text-muted">Kunjungi website Buah Print di www.buahprint.com, anda dapat membuat akun di Buah Print sebelum login. 
+                  Anda diberikan hak untuk dapat melihat profil mitra yang telah bergabung.</p>
                 </div>
               </div>
             </li>
@@ -175,7 +176,8 @@
                   <h4 class="subheading">Pesan</h4>
                 </div>
                 <div class="timeline-body">
-                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                  <p class="text-muted">Pemesanan dapat dilakukan kepada mitra Buah Print, dengan cara mengunggah file yang ingin dicetak beserta deskripsi. 
+                  Anda dapat memilih jenis ketas, warna, pilihan halaman, dan fitur tambahan lainnya.</p>
                 </div>
               </div>
             </li>
@@ -188,7 +190,8 @@
                   <h4 class="subheading">Bayar</h4>
                 </div>
                 <div class="timeline-body">
-                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                  <p class="text-muted">Demi kenyamanan bersama kami sarankan anda melakukan pembayaran dengan saldo. Anda dapat mengisi saldo buah print melalui mitra Buah Print. 
+                  Buah Print juga memberikan kemudahan pada transaksi tunai, dengan jaminan foto KTP, SIM atau KTM.</p>
                 </div>
               </div>
             </li>
@@ -201,7 +204,8 @@
                   <h4 class="subheading">Ambil</h4>
                 </div>
                 <div class="timeline-body">
-                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                  <p class="text-muted">Anda dapat melihat antrian, waktu tunggu dan waktu proses cetak dokumen anda. Anda juga akan menerima notifikasi jika dokumen anda selesai dicetak. 
+                  Segera ambil dokumen anda, dan berikan rating serta komentar atas pelayan mitra Buah Print</p>
                 </div>
               </div>
             </li>
