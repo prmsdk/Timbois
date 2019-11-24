@@ -96,14 +96,14 @@
               <a class="collapse-item" href="master_fitur.php">Fitur</a>
               <div class="collapse-divider"></div>
               <h6 class="collapse-header">Form Mitra:</h6>
-              <a class="collapse-item" href="kategori_produk.php">Bank</a>
-              <a class="collapse-item" href="kategori_bahan.php">Jadwal Mitra</a>
-              <a class="collapse-item" href="kategori_ukuran.php">Gambar Mitra</a>
+              <a class="collapse-item" href="master_bank.php">Bank</a>
+              <a class="collapse-item" href="master_jadwal.php">Jadwal Mitra</a>
+              <a class="collapse-item" href="master_thumbnail.php">Gambar Mitra</a>
               <?php
                 if (isset($_SESSION['admin_status'])) {
                   if ($_SESSION['admin_status'] == 1) { ?>
                   <h6 class="collapse-header">Form Akun:</h6>
-                  <a class="collapse-item" href="master_admin.php">Admin</a>
+                  <a class="collapse-item" href="master_admin.php">Mitra</a>
                   <a class="collapse-item" href="master_user.php">User</a>
               <?php
                   }

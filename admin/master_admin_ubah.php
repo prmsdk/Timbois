@@ -13,71 +13,86 @@ if(!isset($_SESSION['admin_login'])){
   header("location:index.php");
 }
 
-  if(isset($_GET['id_admin'])){
-    $id_admin = $_GET['id_admin'];
+  if(isset($_GET['id_mitra'])){
+    $id_mitra = $_GET['id_mitra'];
 
-    $data = mysqli_query($con, "SELECT * FROM admin WHERE ADM_ID='$id_admin'");
-    $data_admin = mysqli_fetch_assoc($data);
-    $nama_admin = $data_admin['ADM_NAMA_USAHA_ADM']; 
-    $email_admin = $data_admin['ADM_EMAIL'];
-    $no_hp = $data_admin['ADM_NO_HP'];
-    $no_telp = $data_admin['ADM_NO_TELP'];
-    $alamat_admin = $data_admin['ADM_ALAMAT'];
-    $username_admin = $data_admin['ADM_USERNAME'];
-    $status_admin = $data_admin['ADM_STATUS'];
+    $data = mysqli_query($con, "SELECT * FROM mitra WHERE ID_MITRA='$id_mitra'");
+    $data_mitra = mysqli_fetch_assoc($data);
+    $nama_mitra = $data_mitra['NAMA_MITRA']; 
+    $email_mitra = $data_mitra['EMAIL_MITRA'];
+    $no_hp_mitra = $data_mitra['NO_HP_MITRA'];
+    $telephone_mitra = $data_mitra['TELEPHONE_MITRA'];
+    $alamat_mitra = $data_mitra['ALAMAT_MITRA'];
+    $foto_profile = $data_mitra['FOTO_PROFILE'];
+    $cover = $data_mitra['COVER'];
+    $status_mitra = $data_mitra['STATUS_MITRA'];
+    $saldo_mitra = $data_mitra['SALDO_MITRA'];
+    $username_mitra = $data_mitra['USERNAME_MITRA'];
+    $password_mitra = $data_mitra['PASSWORD_MITRA'];
 }
 ?>
   <div class="container my-4">
     <div class="title text-center">
-    <h2>Ubah Data Admin</h2>
+    <h2>Ubah Data Mitra</h2>
     </div>
     <div class="row justify-content-center">
     <div class="col-6">
       <form class="font-m-light" action="query/master_admin_query.php" method="post">
-        <input type="hidden" name="id_admin" id="id" value="<?=$id_admin?>">
+        <input type="hidden" name="id_mitra" id="id" value="<?=$id_mitra?>">
         <div class="form-group">
-          <label for="nama-admin" class="font-m-med">Nama</label>
-          <input type="text" class="form-control" id="nama_admin" name="nama_admin" aria-describedby="usernameHelp" placeholder="Masukkan Nama" value="<?=$nama_admin?>" required>
+          <label for="nama-mitra" class="font-m-med">Nama</label>
+          <input type="text" class="form-control" id="nama_mitra" name="nama_mitra" aria-describedby="usernameHelp" placeholder="Masukkan Nama" value="<?=$nama_mitra?>" required>
         </div>
         <div class="form-group">
-          <label for="email-admin" class="font-m-med">Email</label>
-          <input type="text" class="form-control" id="email_admin" name="email_admin" aria-describedby="usernameHelp" placeholder="Masukkan Email" value="<?=$email_admin?>" required>
+          <label for="email-mitra" class="font-m-med">Email</label>
+          <input type="text" class="form-control" id="email_mitra" name="email_mitra" aria-describedby="usernameHelp" placeholder="Masukkan Email" value="<?=$email_mitra?>" required>
         </div>
         <div class="form-group">
-          <label for="no-telp-admin" class="font-m-med">Nomor Telepon</label>
-          <input type="text" class="form-control" id="no_telp_admin" name="no_telp_admin" aria-describedby="usernameHelp" placeholder="(0331) xxx" value="<?=$no_telp?>" required>
+          <label for="no-hp-mitra" class="font-m-med">Nomor HP</label>
+          <input type="text" class="form-control" id="no_hp_mitra" name="no_hp_mitra" aria-describedby="usernameHelp" placeholder="08xx" value="<?=$no_hp_mitra?>" required>
         </div>
         <div class="form-group">
-          <label for="no-hp-admin" class="font-m-med">Nomor Handphone</label>
-          <input type="text" class="form-control" id="no_hp_admin" name="no_hp_admin" aria-describedby="usernameHelp" placeholder="08xx" value="<?=$no_hp?>" required>
+          <label for="telephone-mitra" class="font-m-med">Nomor Telepon</label>
+          <input type="text" class="form-control" id="telephone_mitra" name="telephone_mitra" aria-describedby="usernameHelp" placeholder="(0331) xxx" value="<?=$telephone_mitra?>" required>
         </div>
       </div>
       <div class="col-6">
         <div class="form-group">
-          <label for="alamat-admin" class="font-m-med">Alamat</label>
-          <textarea name="alamat_admin" id="alamat_admin" class="form-control" placeholder="Alamat..." required><?=$alamat_admin?></textarea>
+          <label for="alamat-mitra" class="font-m-med">Alamat</label>
+          <textarea name="alamat_mitra" id="alamat_mitra" class="form-control" placeholder="Alamat..." required><?=$alamat_mitra?></textarea>
         </div>
         <div class="form-group">
-          <label for="username-admin" class="font-m-med">Username</label>
-          <input type="text" class="form-control" id="username_admin" name="username_admin" aria-describedby="usernameHelp" placeholder="Masukkan Username" value="<?=$username_admin?>" required>
+          <label for="foto-profile" class="font-m-med">Foto Profile</label>
+          <input type="file" class="form-control" id="foto_profile" name="foto_profile" value="<?=$foto_profile?>" required>
+        </div>
+        <div class="form-group">
+          <label for="cover" class="font-m-med">Cover</label>
+          <input type="file" class="form-control" id="cover" name="cover" value="<?=$cover?>" required>
         </div>
         <div class="form-group">
           <div class="form-check">
-            <input class="form-check-input" type="radio" id="status_radio1" name="status_admin" value="1" <?php if($status_admin==1){echo "checked";}?>>
+            <input class="form-check-input" type="radio" id="status_radio1" name="status_mitra" value="1" <?php if($status_mitra==1){echo "checked";}?>>
             <label class="form-check-label" for="status_radio1">
-              Super Admin
+              Super mitra
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" id="status_radio2" name="status_admin" value="2" <?php if($status_admin==2){echo "checked";}?>>
+            <input class="form-check-input" type="radio" id="status_radio2" name="status_mitra" value="2" <?php if($status_mitra==2){echo "checked";}?>>
             <label class="form-check-label" for="status_radio2">
-              Admin
+              mitra
             </label>
           </div>
-        
+          <div class="form-group">
+          <label for="saldo-mitra" class="font-m-med">Saldo</label>
+          <input type="text" class="form-control" id="saldo_mitra" name="saldo_mitra" aria-describedby="usernameHelp" placeholder="Masukkan Username" value="<?=$saldo_mitra?>" required>
+        </div>
+        <div class="form-group">
+          <label for="username-mitra" class="font-m-med">Username</label>
+          <input type="text" class="form-control" id="username_mitra" name="username_mitra" aria-describedby="usernameHelp" placeholder="Masukkan Username" value="<?=$username_mitra?>" required>
+        </div>
       </div>
       <div class="text-left">
-        <input type="submit" class="btn btn-primary" name="edit_admin" value="Simpan">
+        <input type="submit" class="btn btn-primary" name="edit_mitra" value="Simpan">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
