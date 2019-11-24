@@ -691,3 +691,11 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   left: 30vw;
   right: 30vw;
 }
+
+.box_ukuran{
+  display: none;
+}
+
+.box_warna{
+  display: none;
+}
