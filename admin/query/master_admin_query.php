@@ -37,10 +37,10 @@ if(isset($_POST['edit_mitra'])){
     ALAMAT_MITRA = '$alamat_mitra',
     FOTO_PROFILE = '$foto_profile',
     COVER = '$cover',
-    STATUS_MITRA = '$status_mitra'.
+    STATUS_MITRA = '$status_mitra',
     SALDO_MITRA = '$saldo_mitra',
     USERNAME_MITRA = '$username_mitra',
-    PASSWORD_MITRA = '$password_mitra',
+    PASSWORD_MITRA = '$password_mitra'
     WHERE
     ID_MITRA = '$id_mitra'
   ");
