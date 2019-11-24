@@ -96,7 +96,7 @@
             if(isset($_SESSION['admin_status'])){
               if($_SESSION['admin_status']==1){?>
               <h6 class="collapse-header">Form Akun:</h6>
-              <a class="collapse-item" href="master_admin.php">Admin</a>
+              <a class="collapse-item" href="master_admin.php">Mitra</a>
               <a class="collapse-item" href="master_user.php">User</a>
             <?php
               }

@@ -4,7 +4,7 @@
     header("location:index.php");
   }
 
-  $_SESSION['active_link'] = 'master';
+  $_SESSION['active_link'] = 'jadwal_mitra';
   include 'includes/config.php';
   include 'includes/header.php';
   if(!isset($_SESSION['admin_login'])){
@@ -13,7 +13,7 @@
   }
 
   //SELECT ADMIN
-  $result = mysqli_query($con, "SELECT * FROM mitra");
+  $result = mysqli_query($con, "SELECT * FROM jadwal_mitra");
 ?>
 
 <!-- Begin Page Content -->
@@ -22,8 +22,8 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-2">
-    <h3 class="mt-2 font-weight-bold float-left text-primary">Tabel Daftar Mitra</h3>
-    <button class="mt-2 btn btn-primary float-right ml-auto" data-toggle="modal" data-target="#tambah_mitra">Tambah Data</button>
+    <h3 class="mt-2 font-weight-bold float-left text-primary">Tabel Jadwal Mitra</h3>
+    <button class="mt-2 btn btn-primary float-right ml-auto" data-toggle="modal" data-target="#tambah_jadwal">Tambah Data</button>
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -31,9 +31,9 @@
         <thead>
           <tr>
             <th>No.</th>
-            <th>Nama</th>
-            <th>Email</th>
-            <th>No HP</th>
+            <th>ID JADWAL</th>
+            <th>Nama Mitra</th>
+            <th>Jadwal Mitra</th>
             <th>No Telp</th>
             <th>Alamat</th>
             <th>Username</th>
