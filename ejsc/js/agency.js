@@ -160,7 +160,6 @@
         $("#radio_fitur").change(function () {
           $(this).find("input:checked").each(function () {
             HrgFitur = parseInt($(this).attr("placeholder"));
-            console.log(HrgFitur);
           });
         }).change();
 

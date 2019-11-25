@@ -23,7 +23,8 @@
             </div>
             <label class="m-0"><small>Mohon unggah file dalam format pdf (maximal 30 MB). 
             Jika ukuran file anda melebihi batas yang ditentukan, mohon hubungi kami <a href="index.php#contact">Langsung via Email</a></small></label>
-            <input type="submit" name="upload_file" id="upload_file" value="Upload">
+            <?php if(isset($_SESSION['id_user'])){}?>
+            <button type="button" data-target="#login_user" data-toggle="modal">Upload</button>
             </form>
           </div>
         </div>

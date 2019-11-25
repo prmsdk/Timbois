@@ -30,7 +30,7 @@
         </div>
         <div class="card-body p-4">
           <form action="" method="post" name="mainForm" enctype="multipart/form_data">
-            <input type="hidden" name="nama_produk" id="id_produk" value="<?$id_produk?>">
+            <input type="hidden" name="id_produk" id="id_produk" value="<?$id_produk?>">
 
             <?php
               // Make a function for convenience 
@@ -76,7 +76,7 @@
             <div class="form-group row text-right">
               <label for="" class="font-weight-bolder col-sm-4">Halaman yang akan dicetak = </label>
               <div class="col-sm-7 p-0">
-              <select class="m-0 custom-select" id="select_ukuran" required>
+              <select class="m-0 custom-select" name="id_halaman" id="select_ukuran" required>
                 <?php
                 $result_halaman = mysqli_query($con, "SELECT * FROM halaman");
                 while($data_halaman=mysqli_fetch_assoc($result_halaman)){
@@ -141,7 +141,7 @@
             <div class="form-group row text-right">
               <label for="" class="font-weight-bolder col-sm-4">Pilih Format Warna = </label>
               <div class="col-sm-7 p-0">
-              <select class="m-0 custom-select" id="select_warna" required>
+              <select class="m-0 custom-select" name="id_warna" id="select_warna" required>
                 <?php
                 $result_warna = mysqli_query($con, "SELECT * FROM warna");
                 while($data_warna = mysqli_fetch_assoc($result_warna)){
@@ -175,7 +175,7 @@
             <div class="form-group row text-right">
               <label for="" class="font-weight-bolder col-sm-4">Pilih Ukuran Kertas = </label>
               <div class="col-sm-7 p-0">
-              <select class="m-0 custom-select" id="pilih_ukuran" required>
+              <select class="m-0 custom-select" name="id_ukuran" id="pilih_ukuran" required>
                 <?php
                 $result_ukuran = mysqli_query($con, "SELECT * FROM ukuran");
                 while($data_ukuran = mysqli_fetch_assoc($result_ukuran)){
@@ -227,7 +227,55 @@
 
 <?php
   if(isset($_POST['tambah_print'])){
+    $id_user = $_SESSION['id_user'];
+
+    $id_produk = $_POST['id_produk'];
+    $jml_halaman = $_POST['jml_halaman'];
+    $jml_dupli = $_POST['jml_dupli'];
+    $id_halaman = $_POST['id_halaman'];
+    $id_warna = $_POST['id_warna'];
+    $id_ukuran = $_POST['id_ukuran'];
+    $id_fitur = $_POST['id_fitur'];
+    $sub_total = $_POST['sub_total'];
     
+    if($_POST['id_halaman']!='HLM0000001' OR $_POST['id_warna']=='WRN0000003'){
+      $ctt_produk1 = ' ';
+      $ctt_produk2 = ' ';
+      $ctt_produk3 = ' ';
+
+      if(isset($_POST['halaman_awal']) AND isset($_POST['halaman_akhir'])){
+        $halaman_awal = $_POST['halaman_awal'];
+        $halaman_akhir = $_POST['halaman_akhir'];
+      }else if(isset($_POST['halaman_khusus'])){
+        $halaman_khusus = $_POST['halaman_khusus'];
+      }else if(isset($_POST['warna_khusus'])){
+        $warna_khusus = $_POST['warna_khusus'];
+      }
+
+      ctt
+    }
+    
+    //  UPDATE PRODUK
+
+    $update_produk = mysqli_query($con, "UPDATE produk SET
+    ID_UKURAN = '$id_produk',
+    ID_HALAMAN = '$id_halaman',
+    ID_WARNA = '$id_warna'
+    WHERE
+    ID_PRODUK = '$id_produk'
+    ");
+
+    //  UPDATE DETAIL
+
+    $update_detail = mysqli_query($con, "UPDATE detail_pemesanan SET
+    SUB_TOTAL = '$sub_total',
+    JML_HAL_PRODUK = '$jml_halaman',
+    JML_DUPLICATE_PRODUK = '$jml_dupli',
+    JML_WARNA_PRODUK = '$jml_warna',
+    CATATAN_PRODUK = '$ctt_produk'
+    WHERE
+    ID_PRODUK = '$id_produk'
+    ");
   }
 
   require 'includes/footer.php';
