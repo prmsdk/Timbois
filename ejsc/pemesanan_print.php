@@ -29,7 +29,7 @@
           <h3 class="m-0">PRINT DOKUMEN</h3>
         </div>
         <div class="card-body p-4">
-          <form action="pemesanan_keranjang.php" method="post" name="mainForm" enctype="multipart/form_data">
+          <form action="" method="post" name="mainForm" enctype="multipart/form_data">
             <input type="hidden" name="nama_produk" id="id_produk" value="<?$id_produk?>">
 
             <?php
@@ -226,5 +226,9 @@
 </div>
 
 <?php
+  if(isset($_POST['tambah_print'])){
+    
+  }
+
   require 'includes/footer.php';
 ?>
