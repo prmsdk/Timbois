@@ -57,6 +57,7 @@
           </li>
           <?php
               error_reporting(0);
+              session_start();
               if($_SESSION['status']=='login'){
                 ?><li class="nav-item">
                   <div class="dropdown notif-custom">

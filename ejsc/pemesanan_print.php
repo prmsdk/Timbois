@@ -12,7 +12,8 @@
     $result = mysqli_query($con, "SELECT * FROM transaksi, detail_pemesanan, produk
     WHERE
     transaksi.ID_TRANSAKSI = detail_pemesanan.ID_TRANSAKSI AND
-    produk.ID_PRODUK = detail_pemesanan.ID_PRODUK
+    produk.ID_PRODUK = detail_pemesanan.ID_PRODUK AND 
+    produk.ID_PRODUK = '$id_produk'
     ORDER by transaksi.TGL_TRANSAKSI DESC
     LIMIT 1");
 
@@ -29,8 +30,8 @@
           <h3 class="m-0">PRINT DOKUMEN</h3>
         </div>
         <div class="card-body p-4">
-          <form action="" method="post" name="mainForm" enctype="multipart/form_data">
-            <input type="hidden" name="id_produk" id="id_produk" value="<?$id_produk?>">
+          <form action="update_pilih_produk.php" method="post" enctype="multipart/form_data">
+            <input type="hidden" name="id_produk" id="id_produk" value="<?=$id_produk?>">
 
             <?php
               // Make a function for convenience 
@@ -67,7 +68,7 @@
             </div>
             <div class="form-group row text-right">
               <label for="jml_halaman" class="my-auto col-sm-4 font-weight-bolder">Jumlah Halaman = </label>
-              <input type="number" class="col-sm-7 form-control inline" id="jml_halaman" name="jml_halaman" value="<?=$jml_hal?>" disabled required>
+              <input type="number" class="col-sm-7 form-control inline" id="jml_halaman" name="jml_halaman" value="<?=$jml_hal?>" readonly required>
             </div>
             <div class="form-group row text-right">
               <label for="jml_dupli" class="my-auto col-sm-4 font-weight-bolder">Jumlah Duplikasi = </label>
@@ -190,11 +191,7 @@
             </div>
             <div class="form-group row text-right">
               <label for="" class="font-weight-bolder col-sm-4">Fitur</label>
-              <div id="radio_fitur" class="col-sm-7 text-left">
-                <div class="custom-control custom-radio">
-                  <input type="radio" id="none" value="none" name="id_fitur" class="custom-control-input" placeholder="0" required>
-                  <label class="custom-control-label" for="none">NONE</label>
-                </div>
+              <div id="check_fitur" class="col-sm-7 text-left">
                 <?php 
                 $result_fitur = mysqli_query($con, "SELECT * FROM fitur");
                 while($data_fitur = mysqli_fetch_assoc($result_fitur)){
@@ -203,8 +200,8 @@
                 $harga_fitur = $data_fitur['HARGA_FITUR'];
                 $status_fitur = $data_fitur['STATUS_FITU'];
                 ?>
-                <div class="custom-control custom-radio">
-                  <input type="radio" id="<?=$id_fitur?>" value="<?=$id_fitur?>" name="id_fitur" class="custom-control-input" placeholder="<?=$harga_fitur?>" <?php if($status_fitur == '0'){echo "disabled";}?> required>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" id="<?=$id_fitur?>" value="<?=$id_fitur?>" name="id_fitur[]" class="custom-control-input" placeholder="<?=$harga_fitur?>" <?php if($status_fitur == '0'){echo "disabled";}?>>
                   <label class="custom-control-label" for="<?=$id_fitur?>"><?=$nama_fitur?></label>
                 </div>
                 <?php }?>
@@ -212,7 +209,7 @@
             </div>
             <div class="form-group row text-right">
               <label for="sub_total" class="my-auto col-sm-4 font-weight-bolder">Total Harga = </label>
-              <input type="number" class="col-sm-7 form-control inline" id="sub_total" name="sub_total" disabled required>
+              <input type="number" class="col-sm-7 form-control inline" id="sub_total" name="sub_total" readonly required>
             </div>
             <div class="form-group text-center">
               <input type="submit" name="tambah_print" class="btn btn-info w-25" value="SIMPAN">
@@ -226,57 +223,5 @@
 </div>
 
 <?php
-  if(isset($_POST['tambah_print'])){
-    $id_user = $_SESSION['id_user'];
-
-    $id_produk = $_POST['id_produk'];
-    $jml_halaman = $_POST['jml_halaman'];
-    $jml_dupli = $_POST['jml_dupli'];
-    $id_halaman = $_POST['id_halaman'];
-    $id_warna = $_POST['id_warna'];
-    $id_ukuran = $_POST['id_ukuran'];
-    $id_fitur = $_POST['id_fitur'];
-    $sub_total = $_POST['sub_total'];
-    
-    if($_POST['id_halaman']!='HLM0000001' OR $_POST['id_warna']=='WRN0000003'){
-      $ctt_produk1 = ' ';
-      $ctt_produk2 = ' ';
-      $ctt_produk3 = ' ';
-
-      if(isset($_POST['halaman_awal']) AND isset($_POST['halaman_akhir'])){
-        $halaman_awal = $_POST['halaman_awal'];
-        $halaman_akhir = $_POST['halaman_akhir'];
-      }else if(isset($_POST['halaman_khusus'])){
-        $halaman_khusus = $_POST['halaman_khusus'];
-      }else if(isset($_POST['warna_khusus'])){
-        $warna_khusus = $_POST['warna_khusus'];
-      }
-
-      ctt
-    }
-    
-    //  UPDATE PRODUK
-
-    $update_produk = mysqli_query($con, "UPDATE produk SET
-    ID_UKURAN = '$id_produk',
-    ID_HALAMAN = '$id_halaman',
-    ID_WARNA = '$id_warna'
-    WHERE
-    ID_PRODUK = '$id_produk'
-    ");
-
-    //  UPDATE DETAIL
-
-    $update_detail = mysqli_query($con, "UPDATE detail_pemesanan SET
-    SUB_TOTAL = '$sub_total',
-    JML_HAL_PRODUK = '$jml_halaman',
-    JML_DUPLICATE_PRODUK = '$jml_dupli',
-    JML_WARNA_PRODUK = '$jml_warna',
-    CATATAN_PRODUK = '$ctt_produk'
-    WHERE
-    ID_PRODUK = '$id_produk'
-    ");
-  }
-
   require 'includes/footer.php';
 ?>
