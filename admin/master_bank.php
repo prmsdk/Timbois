@@ -13,8 +13,10 @@ if(!isset($_SESSION['admin_login'])){
 }
 
   //SELECT BANK
-  $result = mysqli_query($con, "SELECT * FROM bank");
+  $result = mysqli_query($con, "SELECT * FROM bank");  $result_mitra = mysqli_query($con, "SELECT * FROM mitra");
+
 ?>
+
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -22,7 +24,7 @@ if(!isset($_SESSION['admin_login'])){
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
 <div class="card-header py-2">
-    <h3 class="mt-2 font-weight-bold float-left text-primary">Tabel Daftar Mitra</h3>
+    <h3 class="mt-2 font-weight-bold float-left text-primary">Tabel Daftar Bank</h3>
     <button class="mt-2 btn btn-primary float-right ml-auto" data-toggle="modal" data-target="#tambah_bank">Tambah Data</button>
 </div>
 <div class="card-body">
@@ -33,29 +35,29 @@ if(!isset($_SESSION['admin_login'])){
             <th>No.</th>
             <th>Nama Bank</th>
             <th>Nomer Rekening</th>
-            <th> width="100px">Aksi</th>
+            <th>Aksi</th>
         </tr>
         </thead>
         <tbody>
         <?php $i = 0;
             while($data_bank = mysqli_fetch_assoc($result)){
             $id_bank = $data_bank['ID_BANK'];
-            $id_mitra = $data_bank['ID_BANKNK']; 
             $nama_bank = $data_bank['NAMA_BANK'];
             $nomer_rekening = $data_bank['NOMER_REKENING'];
             $i+=1;
         ?>
+
         <tr>
             <td class="text-center"><?=$i?></td>
             <td ><p style="width: 200px;"><?=$nama_bank?></p></td>
-            <td><?=$nomer_rekening?></td>
+            
             <td><p style="width: 120px;"><?=$nomer_rekening?></p></td>
             <td>
-            <div class="block" style="width:65px;">
-                <a href="query/master_admin_query.php?action=delete&id_mitra=<?=$id_bank?>" class="btn btn-danger btn-circle btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus data?');">
+            <div class="block" style="width:64px;">
+                <a href="query/master_bank_query.php?action=delete&id_bank=<?=$id_bank?>" class="btn btn-danger btn-circle btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus data?');">
             <i class="fas fa-trash"></i>
                 </a>
-                <a href="master_admin_ubah.php?id_mitra=<?=$id_bank?>" class="btn btn-primary btn-circle btn-sm">
+                <a href="master_bank_ubah.php?id_bank=<?=$id_bank?>" class="btn btn-primary btn-circle btn-sm">
             <i class="fas fa-pencil-alt"></i>
                 </a>
             </div>
@@ -82,24 +84,37 @@ if(!isset($_SESSION['admin_login'])){
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-biru-tua">
-                    <h5 class="modal-title text-light font-m-bold ml-3" id="editLabel">Tambah Data Mitra</h5>
+                    <h5 class="modal-title text-light font-m-bold ml-3" id="editLabel">Tambah Data Bank</h5>
                     <button type="button" class="close btn bg-biru-tua" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body row justify-content-center">
-                <form class="font-m-light col-11 mt-3" action="query/master_admin_query.php" method="post">
+                <form class="font-m-light col-11 mt-3" action="query/master_bank_query.php" method="post">
+                <div>
+                <label for="id_mitra" class="font-m-med">Pilih Mitra</label>
+                <select name="id_mitra" class="custom-select">
+                <option selected>Pilih Mitra</option>
+                <?php
+                while($data_mitra = mysqli_fetch_assoc ($result_mitra)){
+                $id_mitra = $data_mitra['ID_MITRA'];
+                $nama_mitra = $data_mitra['NAMA_MITRA'];
+                ?>
+                <option value="<?= $id_mitra?>"><?= $nama_mitra?></option>
+                <?php }?>
+                </select>
+                </div>
                     <div class="form-group">
                     <label for="nama_bank" class="font-m-med">Nama Bank</label>
                     <input type="text" class="form-control" id="nama_bank" name="nama_bank" aria-describedby="usernameHelp" placeholder="Masukkan Nama" required>
                     </div>
                     <div class="form-group">
-                    <label for="nomor_rekening" class="font-m-med">Nomor Rekening</label>
-                    <input type="email" class="form-control" id="nomor_rekening" name="nomor_rekening" aria-describedby="usernameHelp" placeholder="Masukkan Email" required>
+                    <label for="nomer_rekening" class="font-m-med">Nomor Rekening</label>
+                    <input type="text" class="form-control" id="nomer_rekening" name="nomer_rekening" aria-describedby="usernameHelp" placeholder="Masukkan No Rek" required>
                     </div>
-                <div class="modal-footer text-center">
+                    <div class="modal-footer text-center">
                     <input type="submit" class="btn btn-primary" name="tambah_bank" value="Simpan">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a href="master_bank.php" class="btn btn-secondary" data-dismiss="modal">Close</a>
                 </div>
             </div>
             </form>
