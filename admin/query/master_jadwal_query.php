@@ -15,15 +15,14 @@ if(isset($_GET['id_jadwal'])){
 
 if(isset($_POST['edit_jadwal'])){
 $id_jadwal = $_POST['id_jadwal'];
+$id_mitra = $_POST['id_mitra'];
 $jadwal_buka = $_POST['jadwal_buka'];
 
-
-
-
-$result = mysqli_query($con, "UPDATE jadwal SET 
-    JADWAL_BUKA = '$jadwal_buka',
+$result = mysqli_query($con, "UPDATE jadwal_mitra SET 
+    ID_MITRA = '$id_mitra',
+    JADWAL_BUKA = '$jadwal_buka'
     WHERE
-    ID_jadwal = '$id_jadwal'
+    ID_JADWAL = '$id_jadwal'
 ");
 
     header("location:../master_jadwal.php");
@@ -32,9 +31,9 @@ $result = mysqli_query($con, "UPDATE jadwal SET
 if(isset($_POST['tambah_jadwal'])){
 
     $id_mitra = $_POST['id_mitra'];
-    $jadwal_buka = $_POST['JADWAL_BUKA'];
+    $jadwal_buka = $_POST['jadwal_buka'];
     
-    $data = mysqli_query($con, "select ID_JADWAL from jadwal ORDER BY ID_JADWAL DESC LIMIT 1");
+    $data = mysqli_query($con, "select ID_JADWAL from jadwal_mitra ORDER BY ID_JADWAL DESC LIMIT 1");
     while($jadwal_data = mysqli_fetch_array($data))
     {
         $id_jdw = $jadwal_data['ID_JADWAL'];
@@ -48,7 +47,7 @@ if(isset($_POST['tambah_jadwal'])){
     }
 
     $result = mysqli_query($con, "INSERT INTO 
-    jadwal(ID_JADWAL, ID_MITRA, JADWAL_BUKA)
+    jadwal_mitra(ID_JADWAL, ID_MITRA, JADWAL_BUKA)
     VALUES('$id_jadwal', '$id_mitra', '$jadwal_buka')
     ");
 

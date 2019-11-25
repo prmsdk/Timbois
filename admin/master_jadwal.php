@@ -103,7 +103,8 @@ if(!isset($_SESSION['admin_login'])){
                 </div>
                     <div class="form-group">
                     <label for="jadwal_buka" class="font-m-med">Jadwal Buka</label>
-                    <input type="text" class="form-control" id="jadwal_buka" name="jadwal_buka" aria-describedby="usernameHelp" placeholder="Masukkan Nama" required>
+                    <textarea type="text" class="form-control" id="jadwal_buka" name="jadwal_buka" aria-describedby="usernameHelp" placeholder="Masukkan Jadwal" required>
+                    </textarea>
                     </div>
                     <div class="modal-footer text-center">
                     <input type="submit" class="btn btn-primary" name="tambah_jadwal" value="Simpan">
