@@ -87,6 +87,12 @@ require 'includes/header_content.php';
                 </div>
             </div>
         </div>
+        <hr>
+        <div class="card-header">
+            <div class="float-right col-2">
+                <div class="btn btn-success btn-lg" href="#">Pesan</div>
+            </div>
+        </div>
     </div>
 </form>
 </div>
