@@ -4,22 +4,28 @@ require 'includes/header_content.php';
 
 <div class="container">
 <form>
-    <div class="card">
-        <div class="card-header">
+    <div class="card m-5 shadow">
+        <div class="card-header text-center text-light bg-info">
             <h3>Keranjang</h3>
         </div>
         <div class="card-body">
             <h5>Nama Mitra</h5>
             <h6>Jl.Raya PB Sudirman no.128</h6>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1">
-                File.pdf x1
-                <h6>50.00</h6>
-                </label>
-                <div class="float-right col-2">
-                    <div class="btn btn-warning" href="#">Edit</div>
-                    <div class="btn btn-danger" href="#">Hapus</div>
+            <hr>
+            <div class="row">
+                <div class="form-check col-1 text-center">
+                    <input class=" form-check-input mr-4" type="checkbox" value="" id="defaultCheck1">
+                </div>
+                <div class="col-8">
+                    <h6 class="m-0">Nama Produk</h6>
+                    <label class="form-check-label" for="defaultCheck1">
+                    File.pdf x1
+                    </label>
+                    <h6>Rp. 50.00</h6>
+                </div>
+                <div class="col-3 text-right">
+                    <a class="btn btn-warning" href="#">Edit</a>
+                    <a class="btn btn-danger" href="#">Hapus</a>
                 </div>
             </div>
         </div>
@@ -27,15 +33,21 @@ require 'includes/header_content.php';
         <div class="card-body">
             <h5>Nama Mitra</h5>
             <h6>Jl.Raya PB Sudirman no.128</h6>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1">
-                File.pdf x1
-                <h6>50.00</h6>
-                </label>
-                <div class="float-right col-2">
-                    <div class="btn btn-warning" href="#">Edit</div>
-                    <div class="btn btn-danger" href="#">Hapus</div>
+            <hr>
+            <div class="row">
+                <div class="form-check col-1 text-center">
+                    <input class=" form-check-input mr-4" type="checkbox" value="" id="defaultCheck1">
+                </div>
+                <div class="col-8">
+                    <h6 class="m-0">Nama Produk</h6>
+                    <label class="form-check-label" for="defaultCheck1">
+                    File.pdf x1
+                    </label>
+                    <h6>Rp. 50.00</h6>
+                </div>
+                <div class="col-3 text-right">
+                    <a class="btn btn-warning" href="#">Edit</a>
+                    <a class="btn btn-danger" href="#">Hapus</a>
                 </div>
             </div>
         </div>
@@ -43,56 +55,34 @@ require 'includes/header_content.php';
         <div class="card-body">
             <h5>Nama Mitra</h5>
             <h6>Jl.Raya PB Sudirman no.128</h6>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1">
-                File.pdf x1
-                <h6>50.00</h6>
-                </label>    
-                <div class="float-right col-2">
-                    <div class="btn btn-warning" href="#">Edit</div>
-                    <div class="btn btn-danger" href="#">Hapus</div>
+            <hr>
+            <div class="row">
+                <div class="form-check col-1 text-center">
+                    <input class=" form-check-input mr-4" type="checkbox" value="" id="defaultCheck1">
+                </div>
+                <div class="col-8">
+                    <h6 class="m-0">Nama Produk</h6>
+                    <label class="form-check-label" for="defaultCheck1">
+                    File.pdf x1
+                    </label>
+                    <h6>Rp. 50.00</h6>
+                </div>
+                <div class="col-3 text-right">
+                    <a class="btn btn-warning" href="#">Edit</a>
+                    <a class="btn btn-danger" href="#">Hapus</a>
                 </div>
             </div>
         </div>
-        <hr>
-        <div class="card-body">
-            <h5>Nama Mitra</h5>
-            <h6>Jl.Raya PB Sudirman no.128</h6>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1">
-                File.pdf x1
-                <h6>50.00</h6>
-                </label>
-                <div class="float-right col-2">
-                    <div class="btn btn-warning" href="#">Edit</div>
-                    <div class="btn btn-danger" href="#">Hapus</div>
-                </div>
+        <div class="card-footer m-0 row justify-content-end">
+            <div class="my-auto text-right col-2">
+                <h5 class=" m-0">Total =</h5> 
             </div>
-        </div>
-        <hr>
-        <div class="card-body">
-            <h5>Nama Mitra</h5>
-            <h6>Jl.Raya PB Sudirman no.128</h6>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1">
-                File.pdf x1
-                <h6>50.00</h6>
-                </label>
-                <div class="float-right col-2">
-                    <div class="btn btn-warning" href="#">Edit</div>
-                    <div class="btn btn-danger" href="#">Hapus</div>
-                </div>
+            <div class="my-auto text-right col-4">
+            <h5 class=" m-0">Rp. 89000</h5> 
             </div>
-        </div>
-        <hr>
-        <div class="card-header">
-            <div class="form-group float-left col-6">
-              Total<input type="text" class="form-control">
+            <div class="col-2 text-right">
+                <div class="btn btn-success btn-lg" href="#">Pesan</div>
             </div>
-            <div class="btn btn-success float-right btn-lg" href="#">Pesan</div>
         </div>
     </div>
 </form>
