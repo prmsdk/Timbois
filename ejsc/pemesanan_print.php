@@ -8,6 +8,7 @@
 
   if(isset($_GET['id_produk'])){
     $id_produk = $_GET['id_produk'];
+    $id_transaksi = $_GET['id_transaksi'];
 
     $result = mysqli_query($con, "SELECT * FROM transaksi, detail_pemesanan, produk
     WHERE
@@ -32,6 +33,7 @@
         <div class="card-body p-4">
           <form action="update_pilih_produk.php" method="post" enctype="multipart/form_data">
             <input type="hidden" name="id_produk" id="id_produk" value="<?=$id_produk?>">
+            <input type="hidden" name="id_transaksi" id="id_transaksi" value="<?=$id_transaksi?>">
 
             <?php
               // Make a function for convenience 

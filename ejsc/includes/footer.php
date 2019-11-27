@@ -98,6 +98,8 @@
   <!-- Custom scripts for this template -->
   <script src="js/agency.min.js"></script>
   <script src="js/agency.js"></script>
+  <script src="js/pemesanan.js"></script>
+  <script src="js/keranjang.js"></script>
 
 </body>
 
