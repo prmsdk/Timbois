@@ -60,8 +60,8 @@ if(isset($_SESSION['id_user'])){
         </div>
         <div class="col-md-3 text-right">
           <a class="btn btn-info" href="keranjang_detail.php?id_produk=<?=$id_produk?>"><i class="fas fa-info-circle fa-1x"></i></a>
-          <a class="btn btn-warning" href="keranjang_query.php?id_produk=<?=$id_produk?>&action=delete">Edit</a>
-          <a class="btn btn-danger" href="keranjang_query.php?id_produk=<?=$id_produk?>">Hapus</a>
+          <a class="btn btn-warning" href="keranjang_ubah.php?id_produk=<?=$id_produk?>">Edit</a>
+          <a class="btn btn-danger" href="keranjang_query.php?id_produk=<?=$id_produk?>&action=delete">Hapus</a>
         </div>
       </div>
       <hr>

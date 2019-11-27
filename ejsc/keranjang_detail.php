@@ -44,7 +44,7 @@ if(isset($_GET['id_produk'])){
         <div class="card-header text-center text-light bg-info">
           <h2 class="mb-0"><?=$nama_produk?></h2>
         </div>
-        <div class="card-body px-5 py-3">
+        <div class="card-body px-5 pt-3 pb-5">
           <div class="row">
             <div class="col-lg-6">
               <h6 class="d-inline">File anda : </h6>
@@ -68,22 +68,26 @@ if(isset($_GET['id_produk'])){
                 <li class="list-group-item"><?=$nama_fitur?></li>
                 <?php }?>
               </ul>
-              <h6 class="mt-2">Catatan Pemesanan :</h6>
-              <label><?=$cttn_prd?></label>
             </div>
             <div class="col-lg-6">
+              <h6 >Catatan Pemesanan :</h6>
+              <textarea class="form-control mb-2" readonly><?=$cttn_prd?></textarea>
               <h6 class="d-inline">Jml Halaman :</h6>
-              <label><?=$jml_hal?></label>
+              <label><?=$jml_hal?></label><br>
               <h6 class="d-inline">Jml Halaman (Warna) :</h6>
-              <label><?=$jml_warna?></label>
+              <label><?=$jml_warna?></label><br>
+              <h6 class="d-inline">Jml Cetak :</h6>
+              <label><?=$jml_dupli?></label><br>
+              <h6 class="d-inline">Sub Total :</h6>
+              <label>Rp. <?=$sub_total?></label>
             </div>
           </div>
-        </div>
-        <div class="card-footer">
-        
         </div>
       </div>
     </div>
   </div>
 
 </div>
+<?php
+  require 'includes/footer.php';
+?>

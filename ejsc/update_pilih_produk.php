@@ -73,6 +73,8 @@ if(isset($_POST['tambah_print'])){
   ID_PRODUK = '$id_produk'
   ");
 
+  mysqli_query($con, "DELETE FROM detail_fitur WHERE ID_PRODUK = '$id_produk'") or die(mysqli_error());
+
   if(isset($_POST['id_fitur'])){
     foreach ($_POST['id_fitur'] as $id_fitur) {
       $fitur = $id_fitur;
