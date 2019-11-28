@@ -6,6 +6,10 @@
   if(isset($_GET['pesan'])){
 
   }
+
+  if(isset($_GET['id_mitra'])){
+    $id_mitra = $_GET['id_mitra'];
+  }
 ?>
 
 <div class="container container-fluid-lg">
@@ -19,8 +23,9 @@
           <div class="col-sm-10">
             <label class="font-weight-bolder" for="upload_pdf">Upload File/Dokumen (Pdf)</label>
             <form action="insert_file_print.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id_mitra" value="<?=$id_mitra?>">
             <div class="my-2">
-              <input type="file" name="upload_pdf" id="upload_pdf">
+              <input type="file" name="upload_pdf" id="upload_pdf" accept=".pdf">
             </div>
             <label class="m-0"><small>Mohon unggah file dalam format pdf (maximal 30 MB). 
             Jika ukuran file anda melebihi batas yang ditentukan, mohon hubungi kami <a href="index.php#contact">Langsung via Email</a></small></label>

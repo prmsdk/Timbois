@@ -23,14 +23,14 @@ if(isset($_POST['tambah_print'])){
   
 
   if(($_POST['id_halaman']!='HLM0000001') OR ($_POST['id_warna']=='WRN0000003')){
-    $ctt_produk1 = ' ';
-    $ctt_produk2 = ' ';
-    $ctt_produk3 = ' ';
+    $ctt_produk1 = 'Rentang Halaman = ';
+    $ctt_produk2 = 'Halaman yang dicetak = ';
+    $ctt_produk3 = 'Jumlah Halaman berwarna = ';
 
     if(($_POST['halaman_awal'] != null) AND ($_POST['halaman_akhir'] != null)){
       $halaman_awal = $_POST['halaman_awal'];
       $halaman_akhir = $_POST['halaman_akhir'];
-      $ctt_produk1 = "$halaman_awal - $halaman_akhir";
+      $ctt_produk1 .= " $halaman_awal - $halaman_akhir";
     }
     
     if($_POST['halaman_khusus'] != null){
@@ -44,10 +44,10 @@ if(isset($_POST['tambah_print'])){
     
     if($_POST['warna_khusus'] != null){
       $jml_warna = $_POST['warna_khusus'];
-      $ctt_produk3 = $jml_warna;
+      $ctt_produk3 .= $jml_warna;
     }
 
-    $ctt_produk = "$ctt_produk1 $ctt_produk2 $ctt_produk3";
+    $ctt_produk = "$ctt_produk1\n $ctt_produk2\n   $ctt_produk3";
   }
 
   //  UPDATE PRODUK
@@ -83,7 +83,7 @@ if(isset($_POST['tambah_print'])){
   }
 
   if($update_produk){
-    header("location:keranjang.php?id_transaksi=$id_transaksi");
+    header("location:keranjang.php");
   }else{
     echo "gagal update produk";
   }

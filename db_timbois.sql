@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Nov 2019 pada 16.05
+-- Waktu pembuatan: 28 Nov 2019 pada 09.36
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.4
 
@@ -62,9 +62,10 @@ CREATE TABLE `detail_fitur` (
 INSERT INTO `detail_fitur` (`ID_PRODUK`, `ID_FITUR`) VALUES
 ('PRD0000001', 'FTR0000001'),
 ('PRD0000002', 'FTR0000001'),
-('PRD0000002', 'FTR0000002'),
 ('PRD0000004', 'FTR0000001'),
-('PRD0000004', 'FTR0000001');
+('PRD0000004', 'FTR0000001'),
+('PRD0000006', 'FTR0000001'),
+('PRD0000010', 'FTR0000001');
 
 -- --------------------------------------------------------
 
@@ -89,8 +90,8 @@ CREATE TABLE `detail_pemesanan` (
 
 INSERT INTO `detail_pemesanan` (`ID_TRANSAKSI`, `ID_PRODUK`, `SUB_TOTAL`, `FILE_PRODUK`, `JML_HAL_PRODUK`, `JML_DUPLICATE_PRODUK`, `JML_WARNA_PRODUK`, `CATATAN_PRODUK`) VALUES
 ('TRS0000001', 'PRD0000001', 45000, 'transaksi.pdf', 239, 2, 7, 'Cover jilidnya pakai warna Hijau'),
-('TRS0000002', 'PRD0000002', 48000, '2018.pdf', 128, 1, 0, '3 - 5    '),
-('TRS0000002', 'PRD0000004', 26625, 'Contoh_PKMP_PKM_Penelitian_yang_didanai.pdf', 25, 3, 8, '11 - 22   8');
+('TRS0000002', 'PRD0000002', 13250, '2018.pdf', 0, 1, 0, 'Rentang Halaman =  5 - 15\n Halaman yang dicetak = \n   Jumlah Halaman berwarna = 0'),
+('TRS0000002', 'PRD0000010', 6400, 'Bukti Daftar Ulang.pdf', 1, 2, 0, ' ');
 
 -- --------------------------------------------------------
 
@@ -189,6 +190,7 @@ CREATE TABLE `mitra` (
   `COVER` varchar(200) NOT NULL,
   `STATUS_MITRA` int(11) NOT NULL,
   `SALDO_MITRA` int(11) NOT NULL,
+  `LOCATION_MITRA` text,
   `USERNAME_MITRA` varchar(50) NOT NULL,
   `PASSWORD_MITRA` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -197,9 +199,9 @@ CREATE TABLE `mitra` (
 -- Dumping data untuk tabel `mitra`
 --
 
-INSERT INTO `mitra` (`ID_MITRA`, `NAMA_MITRA`, `EMAIL_MITRA`, `NO_HP_MITRA`, `TELEPHONE_MITRA`, `ALAMAT_MITRA`, `FOTO_PROFILE`, `COVER`, `STATUS_MITRA`, `SALDO_MITRA`, `USERNAME_MITRA`, `PASSWORD_MITRA`) VALUES
-('MTR0000001', 'Setengah Enam Pagi', 'admin@sep.com', '081222111333', '(0331)323233', 'Ya cari sendiri lah coy', '', '', 1, 0, 'admin', ''),
-('MTR0000002', 'Iqbal Ramadhan', 'iqbal@gmail.com', '085333765990', '(0331)887655', 'Trunojoyo, Banyuwangi', 'no_profil.jpg', 'no_cover.jpg', 2, 100000, 'iqbal', 'eedae20fc3c7a6e9c5b1102098771c70');
+INSERT INTO `mitra` (`ID_MITRA`, `NAMA_MITRA`, `EMAIL_MITRA`, `NO_HP_MITRA`, `TELEPHONE_MITRA`, `ALAMAT_MITRA`, `FOTO_PROFILE`, `COVER`, `STATUS_MITRA`, `SALDO_MITRA`, `LOCATION_MITRA`, `USERNAME_MITRA`, `PASSWORD_MITRA`) VALUES
+('MTR0000001', 'Setengah Enam Pagi', 'admin@sep.com', '081222111333', '(0331)323233', 'Ya cari sendiri lah coy', '', '', 1, 0, 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3949.4365594557016!2d113.7127993!3d-8.1586946!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd6944b11e520d7%3A0xa823aa003c66cde9!2sSEP%201%20(Setengah%20Enam%20Pagi)!5e0!3m2!1sid!2sid!4v1574911298087!5m2!1sid!2sid', 'admin', ''),
+('MTR0000002', 'Iqbal Ramadhan', 'iqbal@gmail.com', '085333765990', '(0331)887655', 'Trunojoyo, Banyuwangi', 'no_profil.jpg', 'no_cover.jpg', 2, 100000, NULL, 'iqbal', 'eedae20fc3c7a6e9c5b1102098771c70');
 
 -- --------------------------------------------------------
 
@@ -221,10 +223,15 @@ CREATE TABLE `produk` (
 
 INSERT INTO `produk` (`ID_PRODUK`, `ID_UKURAN`, `ID_HALAMAN`, `ID_WARNA`, `NAMA_PRODUK`) VALUES
 ('PRD0000001', 'UKN0000001', 'HLM0000001', 'WRN0000003', 'PRINT'),
-('PRD0000002', 'UKN0000001', 'HLM0000001', 'WRN0000003', 'PRINT'),
+('PRD0000002', 'UKN0000002', 'HLM0000002', 'WRN0000001', 'PRINT'),
 ('PRD0000003', 'UKN0000001', 'HLM0000001', 'WRN0000001', 'PRINT'),
 ('PRD0000004', 'UKN0000002', 'HLM0000002', 'WRN0000003', 'PRINT'),
-('PRD0000005', 'UKN0000001', 'HLM0000001', 'WRN0000001', 'PRINT');
+('PRD0000005', 'UKN0000001', 'HLM0000001', 'WRN0000001', 'PRINT'),
+('PRD0000006', 'UKN0000001', 'HLM0000002', 'WRN0000001', 'PRINT'),
+('PRD0000007', 'UKN0000001', 'HLM0000001', 'WRN0000001', 'PRINT'),
+('PRD0000008', 'UKN0000001', 'HLM0000001', 'WRN0000001', 'PRINT'),
+('PRD0000009', 'UKN0000001', 'HLM0000001', 'WRN0000001', 'PRINT'),
+('PRD0000010', 'UKN0000001', 'HLM0000001', 'WRN0000002', 'PRINT');
 
 -- --------------------------------------------------------
 
@@ -298,7 +305,7 @@ CREATE TABLE `transaksi` (
 
 INSERT INTO `transaksi` (`ID_TRANSAKSI`, `ID_METODE`, `ID_USER`, `ID_MITRA`, `TGL_TRANSAKSI`, `TOTAL_TRANSAKSI`, `STATUS_TRANSAKSI`) VALUES
 ('TRS0000001', 'MBY0000001', 'USR0000001', 'MTR0000001', '2019-11-15 23:59:59', 0, 0),
-('TRS0000002', 'MBY0000002', 'USR0000001', 'MTR0000002', '2019-11-27 04:34:25', 0, 0);
+('TRS0000002', 'MBY0000002', 'USR0000001', 'MTR0000002', '2019-11-28 02:22:03', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -344,10 +351,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`ID_USER`, `NAMA_USER`, `STATUS_USER`, `SALDO_USER`, `FOTO_IDENTITAS`, `EMAIL_USER`, `NO_HP_USER`, `ALAMAT_USER`, `USERNAME_USER`, `PASSWORD_USER`) VALUES
-('USR0000001', 'Nur Hadi', 1, 0, 'no_profil.jpg', 'hadi@gmail.com', '081554973376', 'Kendal, Jawa Tengah', 'hadi', '76671d4b83f6e6f953ea2dfb75ded921'),
-('USR0000003', 'Arip', 1, 0, NULL, 'arip@gmail.com', '082333444555', 'Masih mencari tempat tinggal', '@arip', '5d7eb10bb6ad23967c1aef0829b418eb'),
-('USR0000004', 'Dika', 1, 0, NULL, 'hackjones001@gmail.com', '082333444555', 'Maesan, Bondowoso', '@dika', 'e9ce15bcebcedde2cb3cf9fe8f84fc0c'),
-('USR0000005', 'Agoy', 1, 0, NULL, 'agoy@agoy.com', '083555222333', 'Banyuwangi', '@agoy', '5b3c2c50892bc0e428f8e05255178ba9');
+('USR0000001', 'Nur Hadi', 1, 0, 'IMG_20181101_115745.jpg', 'hadi@gmail.com', '081554973376', 'Gg. Pattimura No 74, Kendal, Jawa Tengah, Indonesia', '@hadi', '76671d4b83f6e6f953ea2dfb75ded921'),
+('USR0000003', 'Arip', 0, 0, NULL, 'arip@gmail.com', '082333444555', 'Masih mencari tempat tinggal', '@arip', '5d7eb10bb6ad23967c1aef0829b418eb'),
+('USR0000004', 'Dika', 0, 0, NULL, 'hackjones001@gmail.com', '082333444555', 'Maesan, Bondowoso', '@dika', 'e9ce15bcebcedde2cb3cf9fe8f84fc0c'),
+('USR0000005', 'Agoy', 0, 0, NULL, 'agoy@agoy.com', '083555222333', 'Banyuwangi', '@agoy', '5b3c2c50892bc0e428f8e05255178ba9');
 
 -- --------------------------------------------------------
 
