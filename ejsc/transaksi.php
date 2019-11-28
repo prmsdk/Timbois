@@ -3,90 +3,122 @@ require 'includes/header_content.php';
 ?>
 
 <div class="container">
-<form>
-    <div class="card">
-        <div class="card-header">
-            <h3>Bayar</h3>
+    <form>
+        <div class="card m-5 shadow">
+            <div class="card-header text-center text-light bg-info">
+                <h3>Bayar</h3>              
+            </div>
+            <div class="card-body">
+            <h5>Nama Mitra</h5>
+            <h6>Jl.Raya PB Sudirman no.128</h6>
+            <hr>
+            <div class="row">
+                <div class="form-check col-1 text-center">
+                    <input class=" form-check-input mr-4" type="checkbox" value="" id="defaultCheck1">
+                </div>
+                <div class="col-8">
+                    <h6 class="m-0">Nama Produk</h6>
+                    <label class="form-check-label" for="defaultCheck1">
+                    File.pdf x1
+                    </label>
+                    <h6>Rp. 50.00</h6>
+                </div>
+            </div>
         </div>
         <hr>
         <div class="card-body">
-            <div>
-            <h5>Metode Bayar</h5>
-            </div>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#saldo" data-whatever="@mdo">Saldo</button>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tunai" data-whatever="@fat">Tunai</button>
-        </div>
-    </div>
-    <hr>
-
-    <div class="modal fade" id="saldo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Transaksi Saldo</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            <div class="modal-body">
-            <form>
-        <div class="form-group">
-            <div class="col-12">
-            <form class="font-m-light" action="query/transaksi_saldo_query.php" method="post">
-            <h8 class="modal-title" id="exampleModalLabel">Total Bayar</h8>
-            <input type="text" name="total_bayar" id="id" value="<?=$total_bayar?>">
+            <h5>Nama Mitra</h5>
+            <h6>Jl.Raya PB Sudirman no.128</h6>
+            <hr>
+            <div class="row">
+                <div class="form-check col-1 text-center">
+                    <input class=" form-check-input mr-4" type="checkbox" value="" id="defaultCheck1">
+                </div>
+                <div class="col-8">
+                    <h6 class="m-0">Nama Produk</h6>
+                    <label class="form-check-label" for="defaultCheck1">
+                    File.pdf x1
+                    </label>
+                    <h6>Rp. 50.00</h6>
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-12">
-            <form class="font-m-light" action="query/transaksi_saldo_query.php" method="post">
-            <h8 class="modal-title" id="exampleModalLabel">Saldo Anda</h8>
-            <input type="text" name="saldo_user" id="id" value="<?=$saldo_user?>">
-            </div>
-        </div>    
-        <div class="form-group">
-            <div class="col-11">
-            <form class="font-m-light" action="query/transaksi_saldo_query.php" method="post">
-            <h8 class="modal-title" id="exampleModalLabel">Sisa Saldo</h8>
-            <input type="text" name="sisa_saldo" id="id" value="<?=$sisa_saldo?>">
-            </div>
-        </div>
-            </form>
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-            <button type="button" class="btn btn-primary">Bayar</button>
+        <hr>
+        <div class="card-body">
+            <h5>Nama Mitra</h5>
+            <h6>Jl.Raya PB Sudirman no.128</h6>
+            <hr>
+            <div class="row">
+                <div class="form-check col-1 text-center">
+                    <input class=" form-check-input mr-4" type="checkbox" value="" id="defaultCheck1">
+                </div>
+                <div class="col-8">
+                    <h6 class="m-0">Nama Produk</h6>
+                    <label class="form-check-label" for="defaultCheck1">
+                    File.pdf x1
+                    </label>
+                    <h6>Rp. 50.00</h6>
+                </div>
             </div>
         </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="tunai" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Transaksi Tunai</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+            <hr>
+        <div class="card-footer m-0 row justify-content-end">
+            <div class="my-auto text-right col-md-4">
+                <h5 class=" m-0">Total =</h5> 
             </div>
-            <div class="modal-body">
-            <div class="form-group">
-            <div class="col-14">
-            <form class="font-m-light" action="query/master_admin_query.php" method="post">
-            <h8 class="modal-title" id="exampleModalLabel">Foto Identitas</h8>
-            <input type="file" name="foto_identitas" id="id" value="<?=$foto_identitas?>">
+            <div class="my-auto text-right col-md-4">
+                <h5 class=" m-0">Rp 89000</h5> 
             </div>
         </div>
+            <hr>
+            <div class="card-body">
+                <h5>Pilih Metode Bayar</h5>
+                <hr>
+            <div id="select_pembayaran" class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="status_radio1" name="metode_bayar" value="bayar_dengan_saldo">
+                    <label class="form-check-label" for="status_radio1">
+                    Saldo
+                        </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="status_radio2" name="metode_bayar" value="2" >
+                    <label class="form-check-label" for="status_radio2">
+                Tunai
+                </label>
+                </div>
             </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-            <button type="button" class="btn btn-primary">Upload</button>
+            <hr>
+                <div class="card m-0 row justify-content-end">
+                    <div class="my-auto text-right col-md-4">
+                        <h5 class=" m-0">Total =</h5> 
+                    </div>
+                    <div class="my-auto text-right col-md-4">
+                        <h5 class=" m-0">Rp 89000</h5> 
+                </div>
+            </div>
+                <div id="bayar_dengan_saldo" class="card-footer m-0 row justify-content-end box_saldo">
+                    <div class="my-auto text-center col-mr-9">
+                        <h5 class=" m-0">Saldo =</h5> 
+                    </div>
+                    <div class="my-auto text-right col-mr-3">
+                        <h5 class=" m-0">Rp 100000</h5> 
+                    </div>
+                    <hr>
+                    <div class="my-auto text-center col-mr-9">
+                        <h5 class=" m-0">Sisa Saldo =</h5> 
+                    </div>
+                    <div class="my-auto text-right col-mr-3">
+                        <h5 class=" m-0">Rp 11000</h5> 
+                </div>
+            </div>
+        <div class="card-footer m-2 row justify-content-end">
+            <div class="col-5 text-right ">
+                <div class="btn btn-success btn-lg" href="#">Bayar</div>
             </div>
         </div>
         </div>
-    </div>
-</form>
+    </form>
 </div>
 
 <?php

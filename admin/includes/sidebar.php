@@ -46,7 +46,7 @@
               <a class="collapse-item" href="#">History</a>
               <a class="collapse-item" href="#">Notifikasi</a>
               <h6 class="collapse-header">Top Up Saldo :</h6>
-              <a class="collapse-item" href="#">Top Up Mitra</a>
+              <a class="collapse-item" href="top_up_mitra.php">Top Up Mitra</a>
               <a class="collapse-item" href="#">Top Up User</a>
               <a class="collapse-item" href="#">Withdraw Mitra</a>
             </div>

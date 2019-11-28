@@ -699,3 +699,7 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
 .box_warna{
   display: none;
 }
+
+.box_saldo{
+  display: none;
+}
