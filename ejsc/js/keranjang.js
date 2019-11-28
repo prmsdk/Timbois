@@ -22,7 +22,8 @@
       return previousValue + currentValue;
   });
   console.log(total);
-  document.getElementById("total").innerHTML = "Rp. " + total;    
+  document.getElementById("total").innerHTML = "Rp. " + total;   
+  $("#total_trs").attr("value", total);  
 
 
 })(jQuery);

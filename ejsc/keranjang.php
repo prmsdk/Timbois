@@ -11,7 +11,8 @@ if(isset($_SESSION['id_user'])){
     user.ID_USER = '$id_user' AND
     mitra.ID_MITRA = transaksi.ID_MITRA AND
     user.ID_USER = transaksi.ID_USER AND
-    metode_bayar.ID_METODE = transaksi.ID_METODE
+    metode_bayar.ID_METODE = transaksi.ID_METODE AND
+    transaksi.STATUS_TRANSAKSI = '0'
     ");
 
 }
