@@ -5,9 +5,8 @@
       header("location:index.php");
     }
   } 
-  require 'includes/header_content.php';
 
-  
+  require 'includes/header_content.php';
   
 ?>
 <?php
@@ -113,6 +112,8 @@
 </div>
 
 
+</div>
+</div>
 </div>
 
 <?php

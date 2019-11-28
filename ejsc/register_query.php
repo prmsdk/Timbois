@@ -21,7 +21,7 @@
 
     $row = mysqli_num_rows($data);
     if($row>0){
-      $id_user = autonumber($usr_id, 3, 6);
+      $id_user = autonumber($usr_id, 3, 7);
     }else{
       $id_user = 'USR000001';
     }

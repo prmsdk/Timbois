@@ -63,11 +63,11 @@ if(!isset($_SESSION['admin_login'])){
         </div>
         <div class="form-group">
           <label for="foto-profile" class="font-m-med">Foto Profile</label>
-          <input type="file" class="form-control" id="foto_profile" name="foto_profile" value="<?=$foto_profile?>" required>
+          <input type="file" id="foto_profile" name="foto_profile" value="<?=$foto_profile?>" >
         </div>
         <div class="form-group">
           <label for="cover" class="font-m-med">Cover</label>
-          <input type="file" class="form-control" id="cover" name="cover" value="<?=$cover?>" required>
+          <input type="file"  id="cover" name="cover" value="<?=$cover?>">
         </div>
         <div class="form-group">
           <div class="form-check">

@@ -23,7 +23,7 @@ if (isset($_POST['edit_fitur'])) {
     STATUS_FITUR = '$status_fitur'
     WHERE
     ID_FITUR = '$id_fitur'
-  ");
+");
 
     header("location:../master_fitur.php");
 }
