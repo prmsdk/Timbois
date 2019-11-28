@@ -1,4 +1,5 @@
 <?php
+  include 'includes/config.php';
   require 'includes/header.php';
 ?>
 
@@ -62,15 +63,12 @@
       </div>
       <div class="row">
         <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" href="#portfolioModal1">
-              <div class="portfolio-hover-content">
-                <!--<i class="fas fa-plus fa-3x"></i>-->
-              </div>
+          <div class="portfolio-link">
             <img class="img-fluid" src="img/portfolio/produk4.jpg" alt="">
-          </a>
+          </div>
           <div class="portfolio-caption">
             <!--<p class="text-muted"></p>-->
-            <a href="upload_file_print.php"><i class="btn btn-primary btn-block text-uppercase js-scroll-trigger">Pesan</i></a>
+            <a href="#team" class="btn btn-primary btn-block text-uppercase js-scroll-trigger">Pesan</a>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
@@ -81,7 +79,7 @@
             <img class="img-fluid" src="img/portfolio/produkdokumen.jpg" alt="">
           </a>
           <div class="portfolio-caption">
-            <i class="btn btn-primary btn-block text-uppercase js-scroll-trigger" href="#">Pesan</i>
+            <a href="#team" class="btn btn-primary btn-block text-uppercase js-scroll-trigger">Pesan</a>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
@@ -92,7 +90,7 @@
             <img class="img-fluid" src="img/portfolio/produkkertas.jpg" alt="">
           </a>
           <div class="portfolio-caption">
-            <i class="btn btn-primary btn-block text-uppercase js-scroll-trigger" href="#">Pesan</i>
+            <a href="#team" class="btn btn-primary btn-block text-uppercase js-scroll-trigger">Pesan</a>
           </div>
         </div>
       </div>
@@ -185,117 +183,42 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">About us</h2>
-          <h3 class="section-subheading text-muted"></h3>
+          <h2 class="mt-0 text-uppercase">Pilih Mitra</h2>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="img/team/1.jpg" alt="">
-            <h4>Kay Garland</h4>
-            <p class="text-muted">Lead Designer</p>
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-facebook-f"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-linkedin-in"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="img/team/2.jpg" alt="">
-            <h4>Larry Parker</h4>
-            <p class="text-muted">Lead Marketer</p>
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-facebook-f"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-linkedin-in"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="img/team/3.jpg" alt="">
-            <h4>Diana Pertersen</h4>
-            <p class="text-muted">Lead Developer</p>
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-facebook-f"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-linkedin-in"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
+      <div class="row justify-content-center">
+        <div class="col-md-10 text-center">
+          <select id="select_mitra" name="select_mitra" class="custom-select text-center mx-auto w-50 mb-3 custom-select">
+            <option placeholder="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.4008053365583!2d113.71077901414725!3d-8.162311784041313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd69435769695b7%3A0x5dddfddd9a95434e!2sBakorwil%20V%20Jember!5e0!3m2!1sid!2sid!4v1574911414476!5m2!1sid!2sid" selected>Pilih Mitra</option>
+            <?php
+            $result_mitra = mysqli_query($con, "SELECT * FROM mitra");
+            while($data_mitra = mysqli_fetch_assoc($result_mitra)){
+            $iframe = $data_mitra['LOCATION_MITRA'];
+            $id_mitra = $data_mitra['ID_MITRA'];
+            $nama_mitra = $data_mitra['NAMA_MITRA'];
+            ?>
+            <option 
+            <?php
+            $result_count = mysqli_query($con, "SELECT COUNT(*) FROM mitra, transaksi WHERE
+            mitra.ID_MITRA = transaksi.ID_MITRA AND
+            mitra.ID_MITRA = '$id_mitra'");
+            $data_count = mysqli_fetch_assoc($result_count);
+            $count = $data_count['COUNT(*)'];
+            ?>
+            placeholder="<?=$iframe?>" count="<?=$count?>" value="<?=$id_mitra?>"><?=$nama_mitra?></option>
+            <?php }?>
+          </select><br>
+          <label>Estimasi Waktu Antrian : </label>
+          <label id="estimasi"></label>
+          <iframe id="iframe" src="" width="800" height="350" frameborder="0" style="border:0;" class="border" allowfullscreen=""></iframe><br>
+          <input type="submit" class="mt-2 btn btn-outline-primary btn-lg text-dark" name="id_mitra" id="id_mitra" value="Pilih Mitra">
         </div>
       </div>
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-lg-8 mx-auto text-center">
           <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Clients -->
-  <section class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3 col-sm-6">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="img/logos/envato.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="img/logos/designmodo.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="img/logos/themeforest.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="img/logos/creative-market.jpg" alt="">
-          </a>
-        </div>
-      </div>
+      </div> -->
     </div>
   </section>
 

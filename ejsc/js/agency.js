@@ -55,4 +55,17 @@
     // Collapse the navbar when page is scrolled
     $(window).scroll(navbarCollapse);
 
+
+    var Mtr = '';
+    var Count = 0;
+    $("#select_mitra").change(function () {
+      $(this).find("option:selected").each(function () {
+        Mtr = $(this).attr("placeholder");
+        Count = parseInt($(this).attr("count"));
+        var DisCount = Count * 10 ;
+        $("#iframe").prop('src', Mtr);
+        document.getElementById("estimasi").innerHTML = DisCount + " Menit";
+      });
+    }).change();
+
     })(jQuery); // End of use strict
