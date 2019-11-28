@@ -16,8 +16,7 @@ $result = mysqli_query(
     transaksi.STATUS_TRANSAKSI FROM transaksi,metode_bayar,user,mitra 
     WHERE transaksi.ID_METODE = metode_bayar.ID_METODE 
     AND transaksi.ID_USER = user.ID_USER 
-    AND transaksi.ID_MITRA = mitra.ID_MITRA 
-    AND TGL_TRANSAKSI >= NOW()"
+    AND transaksi.ID_MITRA = mitra.ID_MITRA"
 );
 ?>
 
@@ -27,7 +26,7 @@ $result = mysqli_query(
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-2">
-            <h3 class="mt-2 font-weight-bold float-left text-primary">Daftar Transaksi</h3>
+            <h3 class="mt-2 font-weight-bold float-left text-primary">Daftar History</h3>
             <!-- <button class="mt-2 btn btn-primary float-right ml-auto" data-toggle="modal" data-target="#tambah_produk">Tambah Data</button> -->
         </div>
         <div class="card-body">
@@ -42,7 +41,6 @@ $result = mysqli_query(
                             <th>Tanggal</th>
                             <th>Total</th>
                             <th>Status</th>
-                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -72,13 +70,13 @@ $result = mysqli_query(
                                         } else {
                                             echo '<span class="badge badge-pill badge-success px-3">selesai</span>';
                                         } ?></td>
-                                <td style="width:200px;">
+                                <!-- <td style="width:200px;">
                                     <div class="block ml-auto text-center">
                                         <a href="master_antrianInfo.php?id_transaksi=<?= $id_transaksi ?>" class="btn btn-info btn-circle btn-sm">
                                             <i class="fas fa-info"></i>
                                         </a>
                                     </div>
-                                </td>
+                                </td> -->
                             </tr>
                         <?php } ?>
                     </tbody>

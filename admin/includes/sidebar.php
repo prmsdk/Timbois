@@ -43,7 +43,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">Transaksi Pemesanan :</h6>
               <a class="collapse-item" href="master_antrian.php">Antrian</a>
-              <a class="collapse-item" href="#">History</a>
+              <a class="collapse-item" href="master_history.php">History</a>
               <a class="collapse-item" href="#">Notifikasi</a>
               <h6 class="collapse-header">Top Up Saldo :</h6>
               <a class="collapse-item" href="#">Top Up Mitra</a>
