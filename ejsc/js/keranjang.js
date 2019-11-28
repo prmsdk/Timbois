@@ -34,7 +34,7 @@
       return previousValue + currentValue;
   });
 
-  status_user = document.getElementById("status_user").value;
+  
   document.getElementById("total").innerHTML = "Rp. " + total;   
   $("#total_trs").attr("value", total);  
   saldo = document.getElementById("saldo_user").value;
@@ -49,6 +49,7 @@
     $("#sisa_saldo").attr("value", sisa_saldo);
   }
 
+  status_user = document.getElementById("status_user").value;
   if((status_user == '0') && ($("#metode_cash").is(':checked'))){
     alert("Mohon Lengkapi data diri anda (FOTO KTP)\n agar dapat melanjutkan transaksi secara Tunai");
     document.getElementById("metode_saldo").checked = true;

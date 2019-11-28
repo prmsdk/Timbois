@@ -199,8 +199,10 @@
             ?>
             <option 
             <?php
-            $result_count = mysqli_query($con, "SELECT COUNT(*) FROM mitra, transaksi WHERE
-            mitra.ID_MITRA = transaksi.ID_MITRA AND
+            $result_count = mysqli_query($con, "SELECT COUNT(*) FROM transaksi, mitra, detail_pemesanan
+            WHERE
+            transaksi.ID_TRANSAKSI = detail_pemesanan.ID_TRANSAKSI AND
+            transaksi.ID_MITRA = mitra.ID_MITRA AND
             mitra.ID_MITRA = '$id_mitra'");
             $data_count = mysqli_fetch_assoc($result_count);
             $count = $data_count['COUNT(*)'];

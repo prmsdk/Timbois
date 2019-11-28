@@ -19,6 +19,7 @@ if(isset($_SESSION['id_user'])){
 ?>
 
 <div class="container">
+  <form action="transaksi_query.php" method="post">
   <div class="card m-5 shadow">
     <div class="card-header text-center text-light bg-info">
       <h3>Pembayaran</h3>
@@ -30,11 +31,13 @@ if(isset($_SESSION['id_user'])){
       $alamat_mitra = $data_trs['ALAMAT_MITRA'];
       $total_trs = $data_trs['TOTAL_TRANSAKSI'];
       $id_transaksi = $data_trs['ID_TRANSAKSI'];
+      $id_mitra = $data_trs['ID_MITRA'];
       $saldo_user = $data_trs['SALDO_USER'];
       $status_user = $data_trs['STATUS_USER'];
     ?>
     
       <h5 class="mt-3">Mitra : <?=$nama_mitra?></h5>
+      <input type="hidden" name="id_transaksi[]" value="<?=$id_transaksi?>">
       <h6><?=$alamat_mitra?></h6>
       <hr>
       <?php
@@ -100,7 +103,6 @@ if(isset($_SESSION['id_user'])){
       <h5 class="mr-3">Sub Total : <?=$detail_total?></h5>
       </div>
       <?php }?>
-      <form action="transaksi_query.php" method="post">
       <input type="hidden" id="status_user" value="<?=$status_user?>">
       <div class="ml-4" id="select_metode">
         <h5>Pilih Metode Pembayaran :</h5>
@@ -150,7 +152,7 @@ if(isset($_SESSION['id_user'])){
     <div class="card-footer m-0 mt-3 row justify-content-end">
       
       <div class="col-2 mr-5 text-right">
-        <input class="btn btn-outline-primary btn-lg" type="submit" value="Bayar">
+        <input class="btn btn-outline-primary btn-lg" type="submit" name="bayar" value="Bayar">
       </div>
     </div>
   </div>
