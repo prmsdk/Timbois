@@ -2,24 +2,40 @@
   require 'includes/header_content.php';
   include 'includes/config.php';
 
-  if(isset($_GET['pesan'])){
-
-  }
-
   if(isset($_GET['id_produk'])){
     $id_produk = $_GET['id_produk'];
-    $id_transaksi = $_GET['id_transaksi'];
 
-    $result = mysqli_query($con, "SELECT * FROM transaksi, detail_pemesanan, produk
+    $result_prd = mysqli_query($con, "SELECT 
+    produk.NAMA_PRODUK, warna.ID_WARNA, ukuran.ID_UKURAN, halaman.ID_HALAMAN
+    FROM
+    produk, warna, ukuran, halaman
+    WHERE
+    produk.ID_UKURAN = ukuran.ID_UKURAN AND
+    produk.ID_WARNA = warna.ID_WARNA AND
+    produk.ID_HALAMAN = halaman.ID_HALAMAN AND
+    produk.ID_PRODUK = '$id_produk'
+    ");
+
+    $data_prd = mysqli_fetch_assoc($result_prd);
+    $nama_produk = $data_prd['NAMA_PRODUK'];
+    $nama_warna_ = $data_prd['ID_WARNA'];
+    $nama_ukuran_ = $data_prd['ID_UKURAN'];
+    $nama_halaman_ = $data_prd['ID_HALAMAN'];
+
+    $result_trs = mysqli_query($con, "SELECT * FROM transaksi, detail_pemesanan, produk
     WHERE
     transaksi.ID_TRANSAKSI = detail_pemesanan.ID_TRANSAKSI AND
     produk.ID_PRODUK = detail_pemesanan.ID_PRODUK AND 
     produk.ID_PRODUK = '$id_produk'
-    ORDER by transaksi.TGL_TRANSAKSI DESC
-    LIMIT 1");
+    ");
 
-    $result_detail = mysqli_fetch_assoc($result);
-    $file = $result_detail['FILE_PRODUK'];
+    $data_trs = mysqli_fetch_assoc($result_trs);
+    $file = $data_trs['FILE_PRODUK'];
+    $id_transaksi = $data_trs['ID_TRANSAKSI'];
+    $cttn_prd = $data_trs['CATATAN_PRODUK'];
+    $jml_hal = $data_trs['JML_HAL_PRODUK'];
+    $jml_dupli = $data_trs['JML_DUPLICATE_PRODUK'];
+    $jml_warna = $data_trs['JML_WARNA_PRODUK'];
   }
 ?>
 
@@ -28,7 +44,7 @@
     <div class="col-lg-8 m-5">
       <div class="card p shadow">
         <div class="card-header text-center text-light bg-info">
-          <h3 class="m-0">PRINT DOKUMEN</h3>
+          <h3 class="m-0"><?=$nama_produk?> DOKUMEN</h3>
         </div>
         <div class="card-body p-4">
           <form action="update_pilih_produk.php" method="post" enctype="multipart/form_data">
@@ -70,11 +86,12 @@
             </div>
             <div class="form-group row text-right">
               <label for="jml_halaman" class="my-auto col-sm-4 font-weight-bolder">Jumlah Halaman = </label>
-              <input type="number" class="col-sm-7 form-control inline" id="jml_halaman" name="jml_halaman" value="<?=$jml_hal?>" readonly required>
+              <input type="number" class="col-sm-7 form-control inline" id="jml_halaman" value="<?=$jml_hal?>" readonly required>
+              <input type="hidden" id="jml_hal" name="jml_halaman" value="">
             </div>
             <div class="form-group row text-right">
               <label for="jml_dupli" class="my-auto col-sm-4 font-weight-bolder">Jumlah Duplikasi = </label>
-              <input type="number" class="col-sm-7 form-control inline" id="jml_dupli" name="jml_dupli" required>
+              <input type="number" class="col-sm-7 form-control inline" id="jml_dupli" name="jml_dupli" value="<?=$jml_dupli?>" required>
             </div>
             <div class="form-group row text-right">
               <label for="" class="font-weight-bolder col-sm-4">Halaman yang akan dicetak = </label>
@@ -86,7 +103,10 @@
                 $id_halaman = $data_halaman['ID_HALAMAN'];
                 $nama_halaman = $data_halaman['KAT_HALAMAN'];
                 ?>
-                <option value="<?=$id_halaman?>"><?=$nama_halaman?></option>
+                <option value="<?=$id_halaman?>"
+                <?php
+                if($id_halaman == $nama_halaman_){echo "selected";}
+                ?>><?=$nama_halaman?></option>
               
               <?php } 
               echo "</select>";
@@ -152,7 +172,10 @@
                 $nama_warna = $data_warna['KAT_WARNA'];
                 $harga_warna = $data_warna['HARGA_WARNA'];
                 ?>
-                <option value="<?=$id_warna?>" aria-describedby="<?=$harga_warna?>"><?=$nama_warna?></option>
+                <option value="<?=$id_warna?>" aria-describedby="<?=$harga_warna?>"
+                <?php
+                if($id_warna==$nama_warna_){echo "selected";}
+                ?>><?=$nama_warna?></option>
                 <?php }?>
                 </select>
               <?php
@@ -168,7 +191,7 @@
                     <label for="warna_khusus" class="my-auto">Masukkan Jml Halaman</label>
                   </div>
                   <div class="col-md-8" id="hal_hal">
-                    <input type="number" class="form-control" id="warna_khusus" name="warna_khusus">
+                    <input type="number" class="form-control" id="warna_khusus" name="warna_khusus" value="<?=$jml_warna?>">
                   </div>
                 </div>
               </div>
@@ -186,7 +209,10 @@
                 $nama_ukuran = $data_ukuran['KAT_UKURAN'];
                 $harga_ukuran = $data_ukuran['HARGA_UKURAN'];
                 ?>
-                <option value="<?=$id_ukuran?>" aria-describedby="<?=$harga_ukuran?>"><?=$nama_ukuran?></option>
+                <option value="<?=$id_ukuran?>" aria-describedby="<?=$harga_ukuran?>" 
+                <?php
+                if($id_ukuran==$nama_ukuran_){echo "selected";}
+                ?>><?=$nama_ukuran?></option>
                 <?php }?>
               </select>
               </div>
@@ -198,13 +224,24 @@
                 $result_fitur = mysqli_query($con, "SELECT * FROM fitur");
                 while($data_fitur = mysqli_fetch_assoc($result_fitur)){
                 $id_fitur = $data_fitur['ID_FITUR'];
-                $nama_fitur = $data_fitur['NAMA_FITUR'];
+                $nama_fitur_ = $data_fitur['NAMA_FITUR'];
                 $harga_fitur = $data_fitur['HARGA_FITUR'];
                 $status_fitur = $data_fitur['STATUS_FITU'];
                 ?>
                 <div class="custom-control custom-checkbox">
-                  <input type="checkbox" id="<?=$id_fitur?>" value="<?=$id_fitur?>" name="id_fitur[]" class="custom-control-input" placeholder="<?=$harga_fitur?>" <?php if($status_fitur == '0'){echo "disabled";}?>>
-                  <label class="custom-control-label" for="<?=$id_fitur?>"><?=$nama_fitur?></label>
+                  <input type="checkbox" id="<?=$id_fitur?>" value="<?=$id_fitur?>" name="id_fitur[]" class="custom-control-input" placeholder="<?=$harga_fitur?>" 
+                  <?php 
+                  if($status_fitur == '0'){echo "disabled";}
+                  $fitur = mysqli_query($con, "SELECT fitur.ID_FITUR FROM fitur, produk, detail_fitur WHERE
+                  produk.ID_PRODUK = detail_fitur.ID_PRODUK AND
+                  fitur.ID_FITUR = detail_fitur.ID_FITUR AND
+                  produk.ID_PRODUK = '$id_produk'");
+                  while($data_fitur = mysqli_fetch_assoc($fitur)){
+                  $nama_fitur = $data_fitur['ID_FITUR'];
+                  if($id_fitur==$nama_fitur){echo "checked";}
+                  }
+                  ?>>
+                  <label class="custom-control-label" for="<?=$id_fitur?>"><?=$nama_fitur_?></label>
                 </div>
                 <?php }?>
               </div>

@@ -1,35 +1,5 @@
 (function ($) {
-  "use strict"; // Start of use strict
-
-  $('#tampil-sandi').click(function () {
-    if ($(this).is(':checked')) {
-      $('.tampil-sandi').attr('type', 'text');
-    } else {
-      $('.tampil-sandi').attr('type', 'password');
-    }
-  });
-
-  /* SCRIPT UNTUK MENGHILANGKAN ALERT SECARA OTOMATIS SELAMA 2 DETIK */
-
-  $("#alert-login").fadeTo(2000, 500).slideUp(500, function () {
-    $("#alert-login").slideUp(500);
-    history.pushState(null, null, window.location.href.split('#')[0]);
-    window.location.hash = '';
-  });
-
-  // Smooth scrolling using jQuery easing
-  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-      if (target.length) {
-        $('html, body').animate({
-          scrollTop: (target.offset().top - 54)
-        }, 1000, "easeInOutExpo");
-        return false;
-      }
-    }
-  });
+  "use strict";
 
   $("#select_ukuran").change(function () {
     $(this).find("option:selected").each(function () {
@@ -91,37 +61,10 @@
     $(this).addClass("d-none");
   });
 
-  // Closes responsive menu when a scroll trigger link is clicked
-  $('.js-scroll-trigger').click(function () {
-    $('.navbar-collapse').collapse('hide');
-  });
-
-  // Activate scrollspy to add active class to navbar items on scroll
-  $('body').scrollspy({
-    target: '#mainNav',
-    offset: 56
-  });
-
-  // Collapse Navbar
-  var navbarCollapse = function () {
-    if ($("#mainNav").offset().top > 100) {
-      $("#mainNav").addClass("navbar-shrink");
-    } else {
-      $("#mainNav").removeClass("navbar-shrink");
-    }
-  };
-  // Collapse now if page is not at top
-  navbarCollapse();
-  // Collapse the navbar when page is scrolled
-  $(window).scroll(navbarCollapse);
-
-  // Hitung Total
-
-
   $(document).on('click', 'body *', function () {
     var Total = 0;
     var JmlHal = 0;
-    var JmlDupli = document.getElementById("jml_dupli").value;
+    var JmlDupli = 0;
     var HrgUkuran = 0;
     var Wrn = 0;
     var JmlWrn = 0;
@@ -129,14 +72,31 @@
     var Htm = 0;
     var JmlHtm = 0;
     var HrgFitur = 0;
+    JmlDupli = document.getElementById("jml_dupli").value;
+    JmlHal = parseInt(document.getElementById("jml_halaman").value);
 
     if ($("#HLM0000002").is(':visible')) {
       var HlmAwal = parseInt(document.getElementById("halaman_awal").value);
       var HlmAkhir = parseInt(document.getElementById("halaman_akhir").value);
 
+      if((HlmAkhir > JmlHal) || (HlmAwal > JmlHal)){
+        alert("Masukkan Jumlah Halaman yang lebih kecil \ndari Jumlah halaman PDF anda");
+        $("#halaman_awal").prop('value', '0');
+        $("#halaman_akhir").prop('value', JmlHal);
+      }else if(HlmAkhir < HlmAwal){
+        alert("Masukkan Jumlah Halaman Akhir yang lebih kecil \ndari Jumlah halaman awal");
+        $("#halaman_awal").prop("value", "0");
+        $("#halaman_akhir").prop("value", JmlHal);
+      }
+
       JmlHal = HlmAkhir - HlmAwal;
     } else if ($("#HLM0000003").is(':visible')) {
       var HlmSpec = parseInt(document.getElementById("halaman_khusus").value);
+
+      if(HlmSpec > JmlHal){
+        alert("Masukkan Jumlah Halaman yang lebih kecil \ndari Jumlah halaman PDF anda");
+        $("#halaman_khusus").prop('value', '0');
+      }
 
       JmlHal = HlmSpec;
     } else {
@@ -165,16 +125,22 @@
 
     JmlHtm = JmlHal;
     JmlWrn = JmlHal;
-    if (document.getElementById('select_warna').value == "WRN0000001") {
+    if(document.getElementById('select_warna').value == "WRN0000001"){
       JmlHtm = 0;
       JmlWrn = JmlHal;
-    } else if (document.getElementById('select_warna').value == "WRN0000002") {
+    }else if(document.getElementById('select_warna').value == "WRN0000002"){
       JmlHtm = JmlHal;
       JmlWrn = 0;
-    } else if (document.getElementById('select_warna').value == "WRN0000003") {
+    }else if(document.getElementById('select_warna').value == "WRN0000003"){
       Htm = 50;
       Wrn = 850;
-      JmlWrn = parseInt(document.getElementById("warna_khusus").value);;
+      JmlWrn = parseInt(document.getElementById("warna_khusus").value);
+      
+      if(JmlWrn > JmlHal){
+        alert("Masukkan Jumlah Halaman Warna yang lebih kecil \ndari Jumlah halaman PDF anda");
+        $("#warna_khusus").prop('value', JmlHal);
+      }
+
       JmlHtm = JmlHal - JmlWrn;
     }
 
@@ -182,43 +148,10 @@
 
     $("#sub_total").prop('value', Total);
 
+    var SubTot = 0;
+    var SubTot = document.getElementById("sub_harga")[0].innerHTML;
+    console.log(SubTot);
+
   });
 
-  //Menampilkan Bayar Dengan Saldo
-
-  $("#select_pembayaran").change(function () {
-    $(this).find("input:checked").each(function () {
-      var optionValue = $(this).attr("value");
-      if (optionValue) {
-        $(".box_saldo").not("#" + optionValue).hide();
-        $("#" + optionValue).show();
-      } else {
-        $(".box_saldo").hide();
-      }
-      // Closes responsive menu when a scroll trigger link is clicked
-      $('.js-scroll-trigger').click(function () {
-        $('.navbar-collapse').collapse('hide');
-      });
-    }).change();
-
-  })(jQuery); // End of use strict
-  // Activate scrollspy to add active class to navbar items on scroll
-  $('body').scrollspy({
-    target: '#mainNav',
-    offset: 56
-  });
-
-  // Collapse Navbar
-  var navbarCollapse = function () {
-    if ($("#mainNav").offset().top > 100) {
-      $("#mainNav").addClass("navbar-shrink");
-    } else {
-      $("#mainNav").removeClass("navbar-shrink");
-    }
-  };
-  // Collapse now if page is not at top
-  navbarCollapse();
-  // Collapse the navbar when page is scrolled
-  $(window).scroll(navbarCollapse);
-
-})(jQuery); // End of use strict
+})(jQuery); 

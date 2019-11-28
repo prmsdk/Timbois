@@ -100,7 +100,7 @@ if(isset($_POST['upload_file'])){
               $query = mysqli_query ($con, "INSERT INTO detail_pemesanan(ID_TRANSAKSI, ID_PRODUK, SUB_TOTAL, FILE_PRODUK, CATATAN_PRODUK) 
               VALUES('$id_transaksi','$id_produk','0','$nama','')");
                   if($query) {
-                      header("location:pemesanan_print.php?id_produk=$id_produk");
+                      header("location:pemesanan_print.php?id_produk=$id_produk&id_transaksi=$id_transaksi");
                   }else{
                       echo "MAAF...., UPLOAD GAGAL";
                   }
