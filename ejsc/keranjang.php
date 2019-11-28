@@ -76,8 +76,9 @@ if(isset($_SESSION['id_user'])){
         <div class="my-auto text-right col-4">
         <h5 id="total" class=" m-0"><?=$total_trs?></h5> 
         </div>
-        <div class="col-2 text-right">
-            <a class="btn btn-success btn-lg" href="transaksi.php?id_transaksi=<?=$id_transaksi?>">Bayar</a>
+        <div class="col-4 text-right">
+          <a class="btn btn-outline-dark mr-2 btn-lg" href="index.php?#team">Tambah</a>
+          <a class="btn btn-outline-primary btn-lg" href="transaksi.php">Bayar</a>
         </div>
     </div>
   </div>

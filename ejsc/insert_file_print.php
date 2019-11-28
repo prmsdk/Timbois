@@ -9,6 +9,7 @@ if(!isset($_SESSION['status'])){
 if(isset($_POST['upload_file'])){
 
   $id_user = $_SESSION['id_user'];
+  $id_mitra = $_POST['id_mitra'];
 
   //  MENAMBAH PRODUK
 
@@ -35,15 +36,14 @@ if(isset($_POST['upload_file'])){
   
   // MENAMBAH TRANSAKSI
 
-  $data2 = mysqli_query($con, "SELECT ID_TRANSAKSI, STATUS_TRANSAKSI, ID_USER FROM transaksi ORDER BY ID_TRANSAKSI DESC LIMIT 1");
-  while($data_transaksi = mysqli_fetch_assoc($data2))
-  {
+  $data2 = mysqli_query($con, "SELECT ID_TRANSAKSI, STATUS_TRANSAKSI, ID_USER, ID_MITRA FROM transaksi ORDER BY ID_TRANSAKSI DESC LIMIT 1");
+  $data_transaksi = mysqli_fetch_assoc($data2);
       $trs_id = $data_transaksi['ID_TRANSAKSI'];
       $trs_status = $data_transaksi['STATUS_TRANSAKSI'];
       $trs_user = $data_transaksi['ID_USER'];
-  }
+      $trs_mitra = $data_transaksi['ID_MITRA'];
 
-  if(($id_user == $trs_user) AND ($trs_status == 0)){
+  if(($id_user == $trs_user) AND ($trs_status == 0) AND ($id_mitra == $trs_mitra) ){
     date_default_timezone_set('Asia/Jakarta');
     $date = date("Y-m-d");
     $time = date("h:i:s");
@@ -76,7 +76,7 @@ if(isset($_POST['upload_file'])){
 
     $result_transaksi= mysqli_query($con, "INSERT INTO 
     transaksi(ID_TRANSAKSI, ID_METODE, ID_USER, ID_MITRA, TGL_TRANSAKSI) 
-    VALUES('$id_transaksi','MBY0000001','$id_user','MTR0000001','$date $time')");
+    VALUES('$id_transaksi','MBY0000001','$id_user','$id_mitra','$date $time')");
     var_dump($id_user);
 
     if($result_transaksi){

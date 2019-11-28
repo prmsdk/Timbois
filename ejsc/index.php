@@ -211,7 +211,7 @@
           <label>Estimasi Waktu Antrian : </label>
           <label id="estimasi"></label>
           <iframe id="iframe" src="" width="800" height="350" frameborder="0" style="border:0;" class="border" allowfullscreen=""></iframe><br>
-          <input type="submit" class="mt-2 btn btn-outline-primary btn-lg text-dark" name="id_mitra" id="id_mitra" value="Pilih Mitra">
+          <a href="" id="link_mitra" class="mt-2 btn btn-outline-primary btn-lg text-dark" >Pilih Mitra</a>
         </div>
       </div>
       <!-- <div class="row">

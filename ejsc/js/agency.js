@@ -58,12 +58,18 @@
 
     var Mtr = '';
     var Count = 0;
+    var LinkMtr = '';
+    var IdMtr = '';
     $("#select_mitra").change(function () {
       $(this).find("option:selected").each(function () {
         Mtr = $(this).attr("placeholder");
+        IdMtr = $(this).attr("value");
         Count = parseInt($(this).attr("count"));
+        LinkMtr = "upload_file_print.php?id_mitra=" + IdMtr;
+
         var DisCount = Count * 10 ;
         $("#iframe").prop('src', Mtr);
+        $("#link_mitra").prop('href', LinkMtr);
         document.getElementById("estimasi").innerHTML = DisCount + " Menit";
       });
     }).change();

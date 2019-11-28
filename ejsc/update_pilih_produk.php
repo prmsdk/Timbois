@@ -83,7 +83,7 @@ if(isset($_POST['tambah_print'])){
   }
 
   if($update_produk){
-    header("location:keranjang.php?id_transaksi=$id_transaksi");
+    header("location:keranjang.php");
   }else{
     echo "gagal update produk";
   }
