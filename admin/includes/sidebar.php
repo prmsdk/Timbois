@@ -114,9 +114,9 @@
         </li>
 
         <!-- Nav Item - Charts -->
-        <!-- <li class="nav-item <?php if ($_SESSION['active_link'] === 'laporan') {
-                                      echo "active";
-                                    } ?>">
+        <li class="nav-item <?php if ($_SESSION['active_link'] === 'laporan') {
+                                echo "active";
+                              } ?>">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLaporan" aria-expanded="true" aria-controls="collapseLaporan">
             <i class="fas fa-fw fa-print"></i>
             <span>Laporan</span>
@@ -128,7 +128,7 @@
               <a class="collapse-item" href="#">Master</a>
             </div>
           </div>
-        </li> -->
+        </li>
 
         <!-- Nav Item - Tables -->
         <!-- <li class="nav-item">
