@@ -43,7 +43,7 @@ if(isset($_POST['upload_file'])){
       $trs_user = $data_transaksi['ID_USER'];
       $trs_mitra = $data_transaksi['ID_MITRA'];
 
-  if(($id_user == $trs_user) AND ($trs_status == 0) AND ($id_mitra == $trs_mitra) ){
+  if(($id_user == $trs_user) AND ($trs_status == 0) AND ($id_mitra == $trs_mitra)){
     date_default_timezone_set('Asia/Jakarta');
     $date = date("Y-m-d");
     $time = date("h:i:s");
@@ -60,6 +60,29 @@ if(isset($_POST['upload_file'])){
       echo "selesai update transaksi";
     }else{
       echo "gagal update transaksi";
+    }
+  }else if(($id_mitra != $trs_mitra) AND ($trs_status == 0)){
+    date_default_timezone_set('Asia/Jakarta');
+    $date = date("Y-m-d");
+    $time = date("h:i:s");
+
+    $result_transaksi= mysqli_query($con, "UPDATE transaksi SET 
+    TGL_TRANSAKSI = '$date $time'
+    WHERE
+    ID_MITRA = '$id_mitra'
+    ");
+
+    $data_mtr = mysqli_query($con, "SELECT ID_TRANSAKSI FROM transaksi WHERE ID_MITRA = '$id_mitra' ORDER BY ID_TRANSAKSI DESC LIMIT 1");
+    $mtr = mysqli_fetch_assoc($data_mtr);
+    $trs_id = $mtr['ID_TRANSAKSI'];
+
+    $id_transaksi = $trs_id;
+    var_dump($id_transaksi);
+
+    if($result_transaksi){
+      echo "selesai update mitra";
+    }else{
+      echo "gagal update mitra";
     }
   }else{
 

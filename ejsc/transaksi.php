@@ -93,27 +93,27 @@ if(isset($_SESSION['id_user'])){
       <div class="ml-4">
         <h5>Pilih Metode Pembayaran :</h5>
           <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="metode_saldo" name="metode_bayar" class="custom-control-input" required>
-            <h6 class="custom-control-label" for="metode_saldo">Saldo</h6>
+            <input type="radio" id="metode_saldo" name="metode_bayar" class="custom-control-input">
+            <label class="custom-control-label" for="metode_saldo">Bayar dengan Saldo</label>
           </div>
           <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="metode_cash" name="metode_bayar" class="custom-control-input" require>
-            <h6 class="custom-control-label" for="metode_cash">Cash</h6>
+            <input type="radio" id="metode_cash" name="metode_bayar" class="custom-control-input">
+            <label class="custom-control-label" for="metode_cash">Bayar dengan Cash</label>
           </div>
         </div>
-      
       </div>
+      <div class="text-right"></div>
     <div class="card-footer m-0 mt-3 row justify-content-end">
-        <div class="my-auto text-right col-2">
-            <h5 class=" m-0">Total =</h5> 
-        </div>
-        <div class="my-auto text-right col-3">
-        <h5 id="total" class=" m-0"><?=$total_trs?></h5> 
-        <input type="hidden" name="total_trs" id="total_trs">
-        </div>
-        <div class="col-2 mr-5 text-right">
-          <a class="btn btn-outline-primary btn-lg" href="transaksi_query.php">Bayar</a>
-        </div>
+      <div class="my-auto text-right col-2">
+        <h5 class=" m-0">Total =</h5> 
+      </div>
+      <div class="my-auto text-right col-3">
+      <h5 id="total" class=" m-0"><?=$total_trs?></h5> 
+      <input type="hidden" name="total_trs" id="total_trs">
+      </div>
+      <div class="col-2 mr-5 text-right">
+        <a class="btn btn-outline-primary btn-lg" href="transaksi_query.php">Bayar</a>
+      </div>
     </div>
   </div>
 </form>
