@@ -27,7 +27,7 @@ $result = mysqli_query(
     <div class="card shadow mb-4">
         <div class="card-header py-2">
             <h3 class="mt-2 font-weight-bold float-left text-primary">Daftar History</h3>
-            <a href="cetakPreview.php" class="mt-2 btn btn-primary float-right ml-auto"><i class="fas fa-fw fa-print"></i></a>
+            <!-- <button class="mt-2 btn btn-primary float-right ml-auto" data-toggle="modal" data-target="#tambah_produk">Tambah Data</button> -->
         </div>
         <div class="card-body">
             <div class="table-responsive">
