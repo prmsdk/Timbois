@@ -8,6 +8,10 @@ if (!isset($_SESSION['admin_login'])) {
     header("location:index.php");
 }
 
+if(isset($_SESSION['id_mitra'])){
+    $id_mitra = $_SESSION['id_mitra'];
+}
+
 //SELECT WARNA
 $result = mysqli_query(
     $con,
@@ -17,7 +21,8 @@ $result = mysqli_query(
     WHERE transaksi.ID_METODE = metode_bayar.ID_METODE 
     AND transaksi.ID_USER = user.ID_USER 
     AND transaksi.ID_MITRA = mitra.ID_MITRA 
-    AND TGL_TRANSAKSI >= NOW()"
+    AND TGL_TRANSAKSI > CURDATE()
+    AND mitra.ID_MITRA = '$id_mitra'"
 );
 ?>
 

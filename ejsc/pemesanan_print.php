@@ -70,11 +70,11 @@
             </div>
             <div class="form-group row text-right">
               <label for="jml_halaman" class="my-auto col-sm-4 font-weight-bolder">Jumlah Halaman = </label>
-              <input type="number" class="col-sm-7 form-control inline" id="jml_halaman" name="jml_halaman" value="<?=$jml_hal?>" readonly required>
+              <input type="number" class="col-sm-7 form-control inline" id="jml_halaman" name="jml_halaman" value="<?=$jml_hal?>" min="1" readonly required>
             </div>
             <div class="form-group row text-right">
               <label for="jml_dupli" class="my-auto col-sm-4 font-weight-bolder">Jumlah Duplikasi = </label>
-              <input type="number" class="col-sm-7 form-control inline" id="jml_dupli" name="jml_dupli" required>
+              <input type="number" class="col-sm-7 form-control inline" id="jml_dupli" min="1" name="jml_dupli" required>
             </div>
             <div class="form-group row text-right">
               <label for="" class="font-weight-bolder col-sm-4">Halaman yang akan dicetak = </label>
@@ -101,13 +101,13 @@
                     <h6 class="mr-2">Dari</h6>
                   </div>
                   <div class="col-sm-4 ">
-                    <input type="number" name="halaman_awal" id="halaman_awal" class="form-control mr-2">
+                    <input type="number" name="halaman_awal" min="0" id="halaman_awal" class="form-control mr-2">
                   </div>
                   <div class="col-sm-2 p-0">
                     <h6 class="mr-2">Hingga</h6>
                   </div>
                   <div class="col-sm-4">
-                    <input type="number" name="halaman_akhir" id="halaman_akhir" class="form-control">
+                    <input type="number" name="halaman_akhir" min="1" id="halaman_akhir" class="form-control">
                   </div>
                 </div>
               </div>
@@ -118,7 +118,7 @@
                     <label for="halaman_khusus" class="my-auto mr-2">Masukkan Jml Halaman</label>
                   </div>
                   <div class="col-sm-6" id="hal_hal">
-                    <input type="number" class="form-control" id="halaman_khusus" name="halaman_khusus">
+                    <input type="number" class="form-control" min="1" id="halaman_khusus" name="halaman_khusus">
                   </div>
                   <div class="col-sm-1">
                     <button type="button" class="btn btn-info" id="halaman_khusus_tombol" name="halaman_khusus_tombol">OK</button>
@@ -126,7 +126,7 @@
                 </div>
                 <div class="row" id="tambah_hal_khusus">
                   <div class="col-12" id="hal_khusus" style="display:none;">
-                    <input type="number" class="form-control w-100" id="hal" name="hal[]">
+                    <input type="number" class="form-control w-100" min="1" id="hal" name="hal[]">
                   </div>
                 </div>
                 <div class="row justify-content-end">
@@ -168,7 +168,7 @@
                     <label for="warna_khusus" class="my-auto">Masukkan Jml Halaman</label>
                   </div>
                   <div class="col-md-8" id="hal_hal">
-                    <input type="number" class="form-control" id="warna_khusus" name="warna_khusus">
+                    <input type="number" class="form-control" min="1" id="warna_khusus" name="warna_khusus">
                   </div>
                 </div>
               </div>
@@ -209,9 +209,13 @@
                 <?php }?>
               </div>
             </div>
+            <div class="form-group">
+              <label for="catatan_produk" class="my-auto col-sm-4 font-weight-bolder">Catatan</label>
+              <textarea name="catatan_produk" id="catatan_produk" cols="30" rows="10"></textarea>
+            </div>
             <div class="form-group row text-right">
               <label for="sub_total" class="my-auto col-sm-4 font-weight-bolder">Total Harga = </label>
-              <input type="number" class="col-sm-7 form-control inline" id="sub_total" name="sub_total" readonly required>
+              <input type="number" class="col-sm-7 form-control inline" id="sub_total" name="sub_total" min="1" readonly required>
             </div>
             <div class="form-group text-center">
               <input type="submit" name="tambah_print" class="btn btn-info w-25" value="SIMPAN">

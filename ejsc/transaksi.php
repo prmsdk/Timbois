@@ -153,7 +153,7 @@ if(isset($_SESSION['id_user'])){
     <div class="card-footer m-0 mt-3 row justify-content-end">
       
       <div class="col-2 mr-5 text-right">
-        <input class="btn btn-outline-primary btn-lg" type="submit" name="bayar" value="Bayar">
+        <input id="bayar" class="btn btn-outline-primary btn-lg" type="submit" name="bayar" value="Bayar">
       </div>
     </div>
   </div>

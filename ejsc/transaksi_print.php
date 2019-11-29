@@ -24,7 +24,9 @@ if(isset($_SESSION['id_user'])){
   <form action="transaksi_query.php" method="post">
   <div class="card m-5">
     <div class="card-header text-center bg-light">
+    <a class="btn btn-primary float-right text-dark" href="javascript:window.print()">Cetak</a>
       <h4>Nota Transaksi</h4>
+      
       <label><?php 
       $data_user = mysqli_fetch_assoc($result_user);
       $nama_user = $data_user['NAMA_USER'];

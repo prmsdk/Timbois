@@ -16,6 +16,11 @@
       alert("Mohon Lengkapi data diri anda (FOTO KTP)\n agar dapat melanjutkan transaksi secara Tunai");
       document.getElementById("metode_saldo").checked = true;
       $("#MBY0000001").show();
+      
+    }
+
+    if(($("#metode_cash").is(':checked'))){
+      document.getElementById("bayar").disabled = false;
     }
 
   }).change();
@@ -55,5 +60,7 @@
     document.getElementById("metode_saldo").checked = true;
     $("#MBY0000001").show();
   }
+
+  
 
 })(jQuery);

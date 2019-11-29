@@ -191,7 +191,8 @@
           <select id="select_mitra" name="select_mitra" class="custom-select text-center mx-auto w-50 mb-3 custom-select">
             <option placeholder="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.4008053365583!2d113.71077901414725!3d-8.162311784041313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd69435769695b7%3A0x5dddfddd9a95434e!2sBakorwil%20V%20Jember!5e0!3m2!1sid!2sid!4v1574911414476!5m2!1sid!2sid" selected>Pilih Mitra</option>
             <?php
-            $result_mitra = mysqli_query($con, "SELECT * FROM mitra");
+            $result_mitra = mysqli_query($con, "SELECT * FROM mitra WHERE
+            mitra.STATUS_MITRA = 2");
             while($data_mitra = mysqli_fetch_assoc($result_mitra)){
             $iframe = $data_mitra['LOCATION_MITRA'];
             $id_mitra = $data_mitra['ID_MITRA'];

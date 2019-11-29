@@ -17,7 +17,7 @@ if(isset($_POST['tambah_print'])){
   $id_warna = $_POST['id_warna'];
   $id_ukuran = $_POST['id_ukuran'];
   $sub_total = $_POST['sub_total'];
-  $ctt_produk = ' ';
+  $ctt_produk = $_POST['catatan_produk'];
   $jml_warna = 0;
 
   

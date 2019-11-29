@@ -1,10 +1,14 @@
 <?php
 include 'includes/config.php';
+if(isset($_SESSION['id_user'])){
+  $id_user = $_SESSION['id_user'];
+}
 
 if(isset($_POST['bayar'])){
   $id_array = $_POST['id_transaksi'];
   $total_array = $_POST['total_transaksi'];
   $metode_bayar = $_POST['metode_bayar'];
+  $sisa_saldo = $_POST['sisa_saldo'];
 
   date_default_timezone_set('Asia/Jakarta');
     $date = date("Y-m-d");
@@ -24,4 +28,6 @@ if(isset($_POST['bayar'])){
       header("location:transaksi_print.php");
     }
   }
+
+  $sisa = mysqli_query($con, "UPDATE user SET SALDO_USER = '$sisa_saldo' WHERE ID_USER = '$id_user'");
 }

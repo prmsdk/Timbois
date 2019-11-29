@@ -16,7 +16,8 @@ $result = mysqli_query(
     transaksi.STATUS_TRANSAKSI FROM transaksi,metode_bayar,user,mitra 
     WHERE transaksi.ID_METODE = metode_bayar.ID_METODE 
     AND transaksi.ID_USER = user.ID_USER 
-    AND transaksi.ID_MITRA = mitra.ID_MITRA"
+    AND transaksi.ID_MITRA = mitra.ID_MITRA
+    AND mitra.ID_MITRA = '$id_mitra'"
 );
 ?>
 
