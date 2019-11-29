@@ -22,6 +22,7 @@
 
   <!-- Custom styles for this template -->
   <link href="css/agency.css" rel="stylesheet">
+  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -76,7 +77,8 @@
                       <span class="caret"></span>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right text-right">
-                      <a class="dropdown-item" href="#">Setting Profile</a>
+                      <a class="dropdown-item" href="ubah_profile.php">Setting Profile</a>
+                      <a class="dropdown-item" href="history_user.php">History</a>
                       <a class="dropdown-item" href="#">Bantuan</a>
                       <a class="dropdown-item" href="#">Keamanan</a>
                       <div class="dropdown-divider"></div>

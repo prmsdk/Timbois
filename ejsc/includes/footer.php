@@ -94,6 +94,9 @@
   <!-- Contact form JavaScript -->
   <script src="js/jqBootstrapValidation.js"></script>
   <script src="js/contact_me.js"></script>
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <script src="js/demo/datatables-demo.js"></script>
 
   <!-- Custom scripts for this template -->
   <script src="js/agency.min.js"></script>

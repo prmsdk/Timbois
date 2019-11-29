@@ -7,6 +7,8 @@ if(isset($_SESSION['id_user'])){
     // $id_transaksi = $_GET['id_transaksi'];
     $id_user = $_SESSION['id_user'];
 
+    $result_user = mysqli_query($con, "SELECT * FROM user WHERE ID_USER = '$id_user'");
+
     $result_trs = mysqli_query($con, "SELECT * FROM transaksi, user, mitra, metode_bayar WHERE 
     user.ID_USER = '$id_user' AND
     mitra.ID_MITRA = transaksi.ID_MITRA AND
@@ -20,9 +22,18 @@ if(isset($_SESSION['id_user'])){
 
 <div class="container">
   <form action="transaksi_query.php" method="post">
-  <div class="card m-5 shadow">
-    <div class="card-header text-center text-light bg-info">
-      <h3>Pembayaran</h3>
+  <div class="card m-5">
+    <div class="card-header text-center bg-light">
+      <h4>Nota Transaksi</h4>
+      <label><?php 
+      $data_user = mysqli_fetch_assoc($result_user);
+      $nama_user = $data_user['NAMA_USER'];
+      date_default_timezone_set('Asia/Jakarta');
+      $date = date("Y-m-d");
+      $time = date("h:i:s");
+      echo "$date $time <br>";
+      echo "<h5>$nama_user</h5>"
+      ?></label>
     </div>
     <div class="card-body py-0 px-4 ">
     <?php
@@ -34,6 +45,7 @@ if(isset($_SESSION['id_user'])){
       $id_mitra = $data_trs['ID_MITRA'];
       $saldo_user = $data_trs['SALDO_USER'];
       $status_user = $data_trs['STATUS_USER'];
+      $metode_bayar = $data_trs['NAMA_METODE'];
     ?>
     
       <h5 class="mt-3">Mitra : <?=$nama_mitra?></h5>
@@ -106,28 +118,23 @@ if(isset($_SESSION['id_user'])){
       <?php }?>
       <input type="hidden" id="status_user" value="<?=$status_user?>">
       <div class="ml-4" id="select_metode">
-        <h5>Pilih Metode Pembayaran :</h5>
-          <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="metode_saldo" name="metode_bayar" value="MBY0000001" class="custom-control-input">
-            <label class="custom-control-label" for="metode_saldo">Bayar dengan Saldo</label>
-          </div>
-          <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="metode_cash" name="metode_bayar" value="MBY0000002" class="custom-control-input" checked>
-            <label class="custom-control-label" for="metode_cash">Bayar dengan Tunai</label>
-          </div>
-        </div>
+        <h5>Metode Pembayaran :</h5>
+        <label><?=$metode_bayar?></label>
       </div>
       <div class="row text-right mt-4 justify-content-end">
         <div class="my-auto text-right col-2">
-          <h5 class=" m-0">Total :</h5> 
+          <h5 class="m-0">Total :</h5> 
         </div>
         <div class="my-auto text-right col-3">
         <h5 id="total" class=" m-0"></h5> 
         <input type="hidden" name="total_trs" id="total_trs">
         </div>
-        <div class="col-1"></div>
+        <div class="col-1 mb-3"></div>
       </div>
-      <div id="MBY0000001" class="box_ukuran">
+      <?php
+        if($metode_bayar == 'SALDO'){
+      ?>
+      <div id="MBY0000001">
         <div class="row text-right mt-4 justify-content-end">
           <div class="my-auto text-right col-2">
             <h5 class=" m-0">Saldo :</h5> 
@@ -149,17 +156,22 @@ if(isset($_SESSION['id_user'])){
         <div class="col-1"></div>
       </div>
       </div>
+      <?php }?>
+      </div>
       
-    <div class="card-footer m-0 mt-3 row justify-content-end">
+    <div class="card-footer m-0 mt-3 row justify-content-center">
       
-      <div class="col-2 mr-5 text-right">
-        <input class="btn btn-outline-primary btn-lg" type="submit" name="bayar" value="Bayar">
+      <div class="col-6 mr-5 text-right">
+        <label>Terimakasih telah memesan di BuahPrint.co.id</label>
       </div>
     </div>
   </div>
 </form>
 </div>
-
+</div>
+<script>
+  window.print();
+</script>
 <?php
     require 'includes/footer.php';
 ?>
